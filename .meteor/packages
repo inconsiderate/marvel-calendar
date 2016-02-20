@@ -1,0 +1,42 @@
+# Meteor packages used by this project, one per line.
+#
+# 'meteor add' and 'meteor remove' will edit this file for you,
+# but you can also edit it by hand.
+
+iron:router
+nicolaslopezj:router-layer
+orionjs:core
+orionjs:bootstrap
+twbs:bootstrap
+fortawesome:fontawesome
+orionjs:filesystem
+vsivsi:orion-file-collection
+orionjs:summernote
+orionjs:froala
+orionjs:image-attribute
+orionjs:relationships
+orionjs:lang-es
+accounts-password
+less
+reywood:publish-composite
+dburles:collection-helpers
+standard-minifiers
+meteor-base
+mobile-experience
+mongo
+blaze-html-templates
+session
+jquery
+tracker
+logging
+reload
+random
+ejson
+spacebars
+check
+matb33:collection-hooks
+mizzao:user-status
+useraccounts:iron-routing
+email
+rzymek:fullcalendar
+semantic:ui
