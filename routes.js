@@ -8,8 +8,8 @@ RouterLayer.route('/', {
 	layout: 'layout'
 });
 
-RouterLayer.route('/posts/:_id', {
-	name: 'post',
-	template: 'post',
+RouterLayer.route('/movies/:_id', {
+	name: 'movie',
+	template: 'movie',
 	layout: 'layout'
 });

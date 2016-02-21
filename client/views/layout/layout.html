@@ -1,8 +1,7 @@
 <template name="layout">
 	<div class="ui segment megaphone">
-	{{>header}}
+		{{>header}}
 		<div class="ui container stackable grid">
-
 		    <div class="center aligned two column row">
 		      	{{> fullcalendar id="calendar" class="column"}}
 		      	<div class="column">
@@ -26,7 +25,7 @@
 
 	<div class="ui container">
 		<section id="currentList">
-			<div class="ui large header">Current</div>
+			<div class="ui large header">Currently Playing</div>
 			{{#each currentMovies}}
 				{{> movie }}
 		  	{{/each}}
@@ -34,7 +33,7 @@
 	</div>
 
 	<div class="ui container">
-		<section id="upcomingList" class="ui one stackable cards">
+		<section id="upcomingList">
 			<div class="ui large header">Upcoming</div>
 			{{#each upcomingMovies}}
 				{{> movie }}
@@ -72,9 +71,9 @@
 </template>
 
 <template name="header">
-		<div class="ui container"><h1 class="ui right floated header">Marvel Cinematic Universe Calendar</h1>
-			<div class="ui clearing divider"></div>
-		</div>
+	<div class="ui container"><h1 class="ui right floated header">Marvel Cinematic Universe Calendar</h1>
+		<div class="ui clearing divider"></div>
+	</div>
 </template>
 
 <template name="footer">
