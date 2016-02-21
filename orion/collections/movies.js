@@ -18,9 +18,8 @@ Movies = new orion.collection('movies', {
       { data: 'title', title: orion.helpers.getTranslation('movies.schema.title') },
       { data: 'releaseDate', title: orion.helpers.getTranslation('movies.schema.releaseDate') },
       orion.attributeColumn('image', 'logo', orion.helpers.getTranslation('movies.schema.logo')),
-      orion.attributeColumn('createdBy', 'createdBy', orion.helpers.getTranslation('movies.schema.createdBy')),
-      orion.attributeColumn('createdAt', 'createdAt', orion.helpers.getTranslation('movies.schema.createdAt')),
-      { data: 'rumoured', title: 'rumoured' }
+      { data: 'rumoured', title: 'rumoured' },
+      { date: 'studio', title: 'studio'}
     ]
   }
 });
@@ -34,6 +33,10 @@ Movies.attachSchema(new SimpleSchema({
     type: String,
     label: 'Title'
   },
+  studio: {
+    type: String,
+    label: 'Studio'
+  },
   airing: {
     type: Boolean,
     label: 'Airing'
@@ -43,9 +46,16 @@ Movies.attachSchema(new SimpleSchema({
     label: 'Rumoured',
     optional: true
   },
+  rumourSource: {
+    type: String,
+    label: 'Rumour Source',
+    optional: true
+  },
   releaseDate: {
     type: Date,
-    label: 'Release Date'
+    label: 'Release Date',
+    defaultValue: null,
+    optional: true
   },
   description: orion.attribute('summernote', {
       label: orion.helpers.getTranslation('movies.schema.description') // We use this function to make i18n work in autoform

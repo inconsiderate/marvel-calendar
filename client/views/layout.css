@@ -33,6 +33,11 @@ a:hover {
     color:black;
 }
 
+.ui.cards>.card img.avatar, .ui.cards>.card .avatar img, .ui.card img.avatar, .ui.card .avatar img {
+    width: 2.25em;
+    height: 2.25em;
+}
+
 .card {
   box-shadow: none !important;
 }
@@ -47,12 +52,4 @@ div.ui.items>.item>.image:not(.ui) {
 
 .card .content .extra.content {
     margin-top: 30px;
-}
-
-.trakt-link {
-    float: right;
-}
-
-.bottom-google {
-    align-content: center;
 }

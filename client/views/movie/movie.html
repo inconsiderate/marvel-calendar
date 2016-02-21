@@ -1,7 +1,7 @@
 <template name="movie">
 	<div class="ui stackable two column grid">
 		<div class="row">
-			<div class="ui blurring image column" style="flex-grow: 1;">
+			<div class="ui blurring image column" style="flex-grow: 1; background-color: black;">
 				<div class="ui dimmer">
 				  <div class="content">
 				    <div class="center">
@@ -30,10 +30,15 @@
 				  		<div class="meta">{{releaseDate}}</div>
 				  		<div class="description">
 				    		<p>{{description}}</p>
-				    		{{#if trakt}}
-				    		<p class="trakt-link"><a href={{trakt}} target="_blank">trakt / imdb <i class="right chevron icon"></i></a></p>
-				    		{{/if}}
 				  		</div>
+				  		<div class="extra content">
+					    	{{#if studio}}
+					      	<div class="ui bottom left floated item">{{studio}}</div>
+							{{/if}}
+							{{#if trakt}}
+							<div class="ui bottom right floated item"><a href={{trakt}} target="_blank">trakt<i class="right chevron icon"></i></a></div>
+							{{/if}}
+					    </div>
 					</div>
 				</div>
 			</div>
@@ -42,30 +47,39 @@
 <div class="ui section divider"></div>
 </template>
 
-<template name="upcomingTemplate">
-	{{#if upcoming}}
-	{{#each upcoming}}
+<template name="upcomingMovie">
 	<div class="card">
 	  <div class="content">
-	  <img class="left floated mini ui image" src={{logo}}>
+	  <img class="left floated mini ui image" src={{logo.url}}>
 	    <div class="header">{{title}}</div>
 	    <div class="meta">
 	      <span class="cinema">{{date}}</span>
 	    </div>
 	    <div class="description">{{description}}</div>
-
 	    <div class="extra content">
 	      {{#if trailer}}
 	      <div class="ui bottom left attached label"><a href={{trailer}} target="_blank"><i class="video play outline icon"></i>Play Trailer</a></div>
 	      {{/if}}
 	      {{#if trakt}}
-
-	      <div class="ui bottom right attached label"><a href={{trakt}} target="_blank">trakt / imdb <i class="right chevron icon"></i></a></div>
+	      <div class="ui bottom right attached label"><a href={{trakt}} target="_blank">trakt<i class="right chevron icon"></i></a></div>
 	      {{/if}}
 	    </div>
 	  </div>
 	</div>
-	{{/each}}
-	{{/if}}
+</template>
+
+<template name="unconfirmedMovie">
+	<div class="item column">
+	    {{#if rumoured}}
+		<div class="right floated content">
+			<div class="description"><a href={{rumourSource}} target="_blank">News Source<i class="right chevron icon"></i></a></div>
+		</div>
+	    {{/if}}
+		<img class="ui avatar image" src={{logo.url}}>
+		<div class="content">
+			<div class="header">{{title}}</div>
+			<div class="description">{{description}}</div>
+		</div>
+	</div>
 </template>
 

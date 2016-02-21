@@ -20,6 +20,19 @@ Template.layout.helpers({
 		return Movies.find({
 			releaseDate: {$gte: new Date()},
 		});
-}
+	},
+
+	unconfirmedMovies: function() {
+		return Movies.find({
+			releaseDate: null,
+		});
+	},
+
+	previousMovies: function() {
+		return Movies.find({
+			releaseDate: {$lt: new Date()},
+			airing: false
+		});
+	}
 
 })

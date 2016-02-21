@@ -41,31 +41,17 @@
 		</section>
 	</div>
 
-	<div class="ui large header">Confirmed Projects With Unknown Dates</div>
-	<div class="ui list">
-		<div class="item column">
-			<img class="ui avatar image" src="public/icons/defenders.png">
-			<div class="content">
-				<div class="header">The Defenders (Netflix)</div>
+	<div class="ui container">
+		<section id="upcomingList">
+			<div class="ui large header">Unconfirmed / Rumoured / Unknown Dates</div>
+			<div class="ui middle aligned celled list stackable two column grid">
+			<!-- <div class="ui stackable two column grid"> -->
+			{{#each unconfirmedMovies}}
+				{{> unconfirmedMovie }}
+			{{/each}}
 			</div>
-		</div>
-		<div class="item column">
-			<img class="ui avatar image" src="public/icons/marvel.png">
-			<div class="content">
-				<div class="header">Damage Control (Unknown Network)</div>
-			</div>
-		</div>
-	</div>
-
-
-	<div class="ui large header">Rumoured and Unconfirmed Projects</div>
-	<div class="ui list">
-		<div class="item column">
-			<img class="ui avatar image" src="public/icons/defenders.png">
-			<div class="content">
-				<div class="header">Jessica Jones - Season 2</div>
-			</div>
-		</div>
+			<!-- </div> -->
+		</section>
 	</div>
 {{> footer }}
 </template>
@@ -85,7 +71,7 @@
 	      </h4>
 	  <div class="ui center aligned">
 	    <h1 class="ui center aligned inverted header">
-	      <a href="https://github.com/inconsiderate/mcu"><i class="github icon"></i></a><a href="https://twitter.com/michaelkant"><i class="twitter icon"></i></a>
+	      <a href="https://github.com/inconsiderate/mcu"><i class="github icon"></i></a><a href="https://twitter.com/michaelkant"><i class="twitter icon"></i></a><a href="https://www.linkedin.com/in/michaelkant"><i class="linkedin icon"></i></a>
 	      <p><a href="http://michaelkant.com">michael kant</a></p>
 	    </h1>
 	  </div>
