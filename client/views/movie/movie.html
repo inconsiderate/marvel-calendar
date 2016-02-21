@@ -70,11 +70,13 @@
 
 <template name="unconfirmedMovie">
 	<div class="item column">
-	    {{#if rumoured}}
 		<div class="right floated content">
-			<div class="description"><a href={{rumourSource}} target="_blank">News Source<i class="right chevron icon"></i></a></div>
-		</div>
+	    {{#if rumoured}}
+			<div class="description"><a href={{rumourSource}} target="_blank">Rumour Source<i class="right chevron icon"></i></a></div>
+		{{ else }}
+			<div class="description">Confirmed</div>
 	    {{/if}}
+		</div>
 		<img class="ui avatar image" src={{logo.url}}>
 		<div class="content">
 			<div class="header">{{title}}</div>
