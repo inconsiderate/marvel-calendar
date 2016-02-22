@@ -5,12 +5,10 @@ html, body {
 .ui.inverted.header {
     color: #ececec;
 }
-/*.ui.segment.megaphone {*/
-    /*background-image: url("public/banners/groot.jpg");*/
-    /*background-repeat: no-repeat;*/
-    /*background-color: black;*/
-    /*background-size: cover;*/
-/*}*/
+
+.orion-bootstrap-admin img {
+    max-width: 2.5em;
+}
 
 .ui.container {
     margin-top: 50px;

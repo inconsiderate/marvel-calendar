@@ -35,7 +35,8 @@ Movies.attachSchema(new SimpleSchema({
   },
   studio: {
     type: String,
-    label: 'Studio'
+    label: 'Studio',
+    optional: true
   },
   airing: {
     type: Boolean,
