@@ -1,26 +1,7 @@
 <template name="layout">
 	<div class="ui segment megaphone">
-		{{>header}}
-		<div class="ui container stackable grid">
-		    <div class="center aligned two column row">
-		      	{{> fullcalendar id="calendar" class="column"}}
-		      	<div class="column">
-		        	<iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=300&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=lh599j7okgva72o6um13nnemd4%40group.calendar.google.com&amp;color=%231B887A&amp;ctz=America%2FVancouver" style="border-width:0" height="400" width="auto" frameborder="0" scrolling="no"></iframe>
-		    	</div>
-	    	</div>
-
-		    <div class="row">
-		    	<div class="eight wide column">
-		        	<p></p>
-		        	<h5 class="ui header">This is a list of all of the movies and TV shows in the MCU, the dates the movies will premiere, and when each episode will be aired.</h5>
-		        	<h5 class="ui header">If you use Google Calendar, you can easily import this entire calendar into your own by clicking the "+ Google Calendar" button at the bottom of the agenda list.</h5>
-		      	</div>
-		    	<div class="right floated right aligned eight wide column">
-		        	<p></p>
-		        	<!-- <script type='text/javascript' src='//eclkmpbn.com/adServe/banners?tid=98284_161537_3'></script> -->
-		      	</div>
-		    </div>
-		</div>
+		{{> header }}
+		{{> calendar }}
 	</div>
 
 	<div class="ui container">
@@ -52,6 +33,30 @@
 		</section>
 	</div>
 {{> footer }}
+</template>
+
+<template name="calendar">
+	<div class="ui container stackable grid">
+	    <div class="center aligned two column row">
+	      	<!-- {{> fullcalendar id="calendar" class="column"}} -->
+	      	<div class="column" id="calendar"></div>
+	      	<div class="column">
+	        	<iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=300&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=lh599j7okgva72o6um13nnemd4%40group.calendar.google.com&amp;color=%231B887A&amp;ctz=America%2FVancouver" style="border-width:0" height="400" width="auto" frameborder="0" scrolling="no"></iframe>
+	    	</div>
+    	</div>
+
+	    <div class="row">
+	    	<div class="eight wide column">
+	        	<p></p>
+	        	<h5 class="ui header">This is a list of all of the movies and TV shows in the MCU, the dates the movies will premiere, and when each episode will be aired.</h5>
+	        	<h5 class="ui header">If you use Google Calendar, you can easily import this entire calendar into your own by clicking the "+ Google Calendar" button at the bottom of the agenda list.</h5>
+	      	</div>
+	    	<div class="right floated right aligned eight wide column">
+	        	<p></p>
+	        	<!-- <script type='text/javascript' src='//eclkmpbn.com/adServe/banners?tid=98284_161537_3'></script> -->
+	      	</div>
+	    </div>
+	</div>
 </template>
 
 <template name="header">

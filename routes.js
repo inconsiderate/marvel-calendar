@@ -1,15 +1,15 @@
-/**
- * Add your routes here
- */
+Router.configure({
+	loadingTemplate: 'loading',
+	layoutTemplate: 'layout',
+    onAfterAction: function () {
+        setTimeout(function(){
 
-RouterLayer.route('/', {
-	name: 'home',
-	template: 'home',
-	layout: 'layout'
+		});
+    }
 });
 
-RouterLayer.route('/movies/:_id', {
-	name: 'movie',
-	template: 'movie',
-	layout: 'layout'
+Router.route('/', {
+    action: function() {
+        this.render('header', {to: 'header'});
+    }
 });
