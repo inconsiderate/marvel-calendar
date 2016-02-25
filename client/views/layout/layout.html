@@ -1,67 +1,62 @@
 <template name="layout">
-	<div class="ui segment megaphone">
+		
+	<div class="ui six column stackable grid segment megaphone">
 		{{> header }}
-		{{> calendar }}
 	</div>
 
-	<div class="ui container">
-		<section id="currentList">
-			<div class="ui large header">Currently Playing</div>
-			{{#each currentMovies}}
-				{{> movie }}
-		  	{{/each}}
-		</section>
+<div class="ui stackable relaxed grid">
+	<div class="ten wide column">
+		{{#each blogPosts }}
+			{{> post }}
+		{{/each}}
 	</div>
+	<div class="six wide right floated column">
+		<div class="ui container right-padding">
+			<section id="currentList">
+				<div class="ui large header" style="text-align: right; margin-right: 15px;">Currently Playing</div>
+				{{#each currentMovies}}
+					{{> movie }}
+			  	{{/each}}
+			</section>
+		</div>
 
-	<div class="ui container">
-		<section id="upcomingList">
-			<div class="ui large header">Upcoming</div>
-			{{#each upcomingMovies}}
-				{{> movie }}
-			{{/each}}
-		</section>
+		<div class="ui container right-padding">
+			<section id="upcomingList">
+				<div class="ui large header" style="text-align: right; margin-right: 15px;">Upcoming</div>
+				{{#each upcomingMovies}}
+					{{> movie }}
+				{{/each}}
+			</section>
+		</div>
+		<div class="ui container right-padding">
+			<section id="upcomingList">
+				<div class="ui large header" style="text-align: right; margin-right: 15px;">Unconfirmed / Rumoured / Unknown Dates</div>
+				<div class="ui top aligned celled list stackable two column grid">
+				{{#each unconfirmedMovies}}
+					{{> unconfirmedMovie }}
+				{{/each}}
+				</div>
+			</section>
+		</div>
 	</div>
-
-	<div class="ui container">
-		<section id="upcomingList">
-			<div class="ui large header">Unconfirmed / Rumoured / Unknown Dates</div>
-			<div class="ui top aligned celled list stackable two column grid">
-			{{#each unconfirmedMovies}}
-				{{> unconfirmedMovie }}
-			{{/each}}
-			</div>
-		</section>
-	</div>
+</div>
 {{> footer }}
 </template>
 
-<template name="calendar">
-	<div class="ui container stackable grid">
-	    <div class="center aligned two column row">
-	      	<!-- {{> fullcalendar id="calendar" class="column"}} -->
-	      	<div class="column" id="calendar"></div>
-	      	<div class="column">
-	        	<iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=300&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=lh599j7okgva72o6um13nnemd4%40group.calendar.google.com&amp;color=%231B887A&amp;ctz=America%2FVancouver" style="border-width:0" height="400" width="auto" frameborder="0" scrolling="no"></iframe>
-	    	</div>
-    	</div>
-
-	    <div class="row">
-	    	<div class="eight wide column">
-	        	<p></p>
-	        	<h5 class="ui header">This is a list of all of the movies and TV shows in the MCU, the dates the movies will premiere, and when each episode will be aired.</h5>
-	        	<h5 class="ui header">If you use Google Calendar, you can easily import this entire calendar into your own by clicking the "+ Google Calendar" button at the bottom of the agenda list.</h5>
-	      	</div>
-	    	<div class="right floated right aligned eight wide column">
-	        	<p></p>
-	        	<!-- <script type='text/javascript' src='//eclkmpbn.com/adServe/banners?tid=98284_161537_3'></script> -->
-	      	</div>
-	    </div>
-	</div>
+<template name="blog">	
 </template>
 
 <template name="header">
-	<div class="ui container"><h1 class="ui right floated header">Marvel Cinematic Universe Calendar</h1>
-		<div class="ui clearing divider"></div>
+	<div class="ui two column row">
+	    <div class="ui column">
+			<h1 class="ui left floated header">Marvel Cinematic Universe Calendar</h1>
+	    </div>
+		<div class="ui column">
+	    	<div id="calendar"></div>
+			<div id="calendar-share-button">
+				<iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=30&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=lh599j7okgva72o6um13nnemd4%40group.calendar.google.com&amp;color=%231B887A&amp;ctz=America%2FVancouver" style="border-width:0" width="145" height="30" frameborder="0" scrolling="no"></iframe>
+			</div>
+	    </div>
 	</div>
 </template>
 

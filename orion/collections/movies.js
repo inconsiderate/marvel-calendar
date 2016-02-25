@@ -19,7 +19,7 @@ Movies = new orion.collection('movies', {
       { data: 'releaseDate', title: orion.helpers.getTranslation('movies.schema.releaseDate') },
       orion.attributeColumn('image', 'logo', orion.helpers.getTranslation('movies.schema.logo')),
       { data: 'rumoured', title: 'rumoured' },
-      { date: 'studio', title: 'studio'}
+      { data: 'studio', title: 'studio'}
     ]
   }
 });
