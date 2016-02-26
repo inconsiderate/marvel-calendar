@@ -10,6 +10,17 @@ Template.layout.onRendered(function() {
 });
 
 Template.layout.helpers({
+	blogPosts: function() {
+		return Posts.find({});
+	},
+	unconfirmedMovies: function() {
+		return Movies.find({
+			releaseDate: null,
+  		}, {sort: { releaseDate: 1 }});
+	},
+});
+
+Template.movieList.helpers({
 	currentMovies: function() {
 		return Movies.find({
   			releaseDate: {$lt: new Date()},
@@ -23,19 +34,10 @@ Template.layout.helpers({
   		}, {sort: { releaseDate: 1 }});
 	},
 
-	unconfirmedMovies: function() {
-		return Movies.find({
-			releaseDate: null,
-  		}, {sort: { releaseDate: 1 }});
-	},
-
 	previousMovies: function() {
 		return Movies.find({
 			releaseDate: {$lt: new Date()},
 			airing: false
   		}, {sort: { releaseDate: 1 }});
-	},
-	blogPosts: function() {
-		return Posts.find({});
-	},
+	}
 })

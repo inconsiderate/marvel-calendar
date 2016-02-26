@@ -58,7 +58,7 @@ Movies.attachSchema(new SimpleSchema({
     defaultValue: null,
     optional: true
   },
-  description: orion.attribute('summernote', {
+  description: orion.attribute('froala', {
       label: orion.helpers.getTranslation('movies.schema.description') // We use this function to make i18n work in autoform
   }),  
   trailer: {

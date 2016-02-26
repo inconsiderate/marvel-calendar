@@ -15,7 +15,7 @@ Posts = new orion.collection('posts', {
   tabular: {
     columns: [
       { data: 'title', title: orion.helpers.getTranslation('posts.schema.title') },
-      orion.attributeColumn('summernote', 'body', orion.helpers.getTranslation('posts.schema.body')),
+      orion.attributeColumn('froala', 'body', orion.helpers.getTranslation('posts.schema.body')),
       orion.attributeColumn('image', 'image', orion.helpers.getTranslation('posts.schema.image')),
     ]
   }
@@ -30,7 +30,7 @@ Posts.attachSchema(new SimpleSchema({
     type: String,
     label: 'Title'
   },
-  body: orion.attribute('summernote', {
+  body: orion.attribute('froala', {
       label: orion.helpers.getTranslation('posts.schema.body') // We use this function to make i18n work in autoform
   }),  
   /**

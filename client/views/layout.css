@@ -1,50 +1,34 @@
 html, body {
   font-size: 16px;
+  background-color: #FCFFFA;
 }
 
-.extra-padding {
-    padding-left: 40px;
-    padding-right: 40px;
+.ui.grid.headline {
+    margin: 60px 0px;
 }
 
-.right-padding {
-    padding-right: 40px;
+.fc-toolbar {
+    margin-bottom: 0px;
+    background-color: #FCFFFA;
 }
 
 #calendar {
     background-color: white;
     opacity: 0.9;
-/*    margin: 10px;
-    padding: 10px;
-*/}
+}
 
 #calendar-share-button {
     float: right;
 }
 
-/*.ui.segment.megaphone {
-    background: url("marvel.jpg"), no-repeat;
-    background-size: cover;
-}*/
-/*
-.ui.segment.megaphone h1 {
-    color: black;
-    text-shadow: 2px 2px #000000;
-    margin-top: -1em;
-}*/
-
-/*.ui.inverted.header {
-    color: #ececec;
-}
-*/
 .orion-bootstrap-admin img {
     max-width: 2.5em;
 }
 
-.ui.container {
-    margin-top: 50px;
-    margin-bottom: 50px;
+.ui.fluid.card {
+    margin: 0.5em 0em;
 }
+
 
 i.icon {
     margin: 0 !important;
@@ -66,10 +50,6 @@ a:hover {
     width: 2.25em;
     height: 2.25em;
 }
-
-/*.card {
-  box-shadow: none !important;
-}*/
 
 div.ui.items>.item>.image:not(.ui) {
     width: 45px;

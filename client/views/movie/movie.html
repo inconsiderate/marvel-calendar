@@ -1,47 +1,46 @@
 <template name="movie">
-	<div class="ui stackable two column grid">
-		<div class="row">
-			<div class="ui blurring image column" style="padding: 0; flex-grow: 1;">
-				<div class="ui dimmer">
-				  <div class="content">
-				    <div class="center">
-				    {{#if watchnow}}
-				    	<div class="ui inverted button"><a href={{watchnow}} target="_blank"><i class="video play outline icon"></i> Watch Now</a></div>
-				    {{ else }}
-				    {{ #if trailer }}
-				    <div class="ui inverted button"><a href={{trailer}} target="_blank"><i class="video play outline icon"></i> Watch Trailer</a></div>
-				    {{ else }}
-				    <div>No Media Available Yet</div>
-				    {{/if}}
-				    {{/if}}
-				    </div>
-				  </div>
-				</div>
-				<img class="ui fluid dimmable image" src={{banner.url}}>
+	<div class="ui stackable one column grid">
+		<div class="ui blurring image column" style="padding: 0; flex-grow: 1;">
+			<div class="ui dimmer">
+			  <div class="content">
+			    <div class="center">
+			    {{#if watchnow}}
+			    	<div class="ui inverted button"><a href={{watchnow}} target="_blank"><i class="video play outline icon"></i> Watch Now</a></div>
+			    {{ else }}
+			    {{ #if trailer }}
+			    <div class="ui inverted button"><a href={{trailer}} target="_blank"><i class="video play outline icon"></i> Watch Trailer</a></div>
+			    {{ else }}
+			    <div>No Media Available Yet</div>
+			    {{/if}}
+			    {{/if}}
+			    </div>
+			  </div>
 			</div>
+			<img class="ui fluid dimmable image" src={{banner.url}}>
+		</div>
 
-			<div class="ui fluid card">
-				<div class="content">
-			  		<img class="right floated avatar large ui image" src={{logo.url}}>
-			  		<div class="header">
-			  			{{title}}
-			  		</div>
-			  		<div class="meta">{{ release }}</div>
-			  		<div class="description">
-			    		<p>{{description}}</p>
-			  		</div>
-			  		<div class="extra content">
-				    	{{#if studio}}
-				      	<div class="ui bottom left floated item">{{studio}}</div>
-						{{/if}}
-						{{#if trakt}}
-						<div class="ui bottom right floated item"><a href={{trakt}} target="_blank">trakt<i class="right chevron icon"></i></a></div>
-						{{/if}}
-				    </div>
-				</div>
+		<div class="ui fluid card column">
+			<div class="content">
+		  		<img class="right floated avatar large ui image" src={{logo.url}}>
+		  		<div class="header">
+		  			{{title}}
+		  		</div>
+		  		<div class="meta">{{ release }}</div>
+		  		<div class="description">
+		    		<p>{{description}}</p>
+		  		</div>
+		  		<div class="extra content">
+			    	{{#if studio}}
+			      	<div class="ui bottom left floated item">{{studio}}</div>
+					{{/if}}
+					{{#if trakt}}
+					<div class="ui bottom right floated item"><a href={{trakt}} target="_blank">trakt<i class="right chevron icon"></i></a></div>
+					{{/if}}
+			    </div>
 			</div>
 		</div>
 	</div>
+	<div class="ui horizontal divider"></div>
 </template>
 
 <template name="upcomingMovie">
@@ -63,6 +62,7 @@
 	    </div>
 	  </div>
 	</div>
+	<div class="ui horizontal divider"></div>
 </template>
 
 <template name="unconfirmedMovie">
@@ -80,5 +80,6 @@
 			<div class="description">{{description}}</div>
 		</div>
 	</div>
+	<div class="ui horizontal divider"></div>
 </template>
 

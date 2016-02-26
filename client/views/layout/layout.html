@@ -1,57 +1,52 @@
 <template name="layout">
-		
-	<div class="ui six column stackable grid segment megaphone">
+	<div class="container">
 		{{> header }}
-	</div>
-
-<div class="ui stackable relaxed grid">
-	<div class="ten wide column">
-		{{#each blogPosts }}
-			{{> post }}
-		{{/each}}
-	</div>
-	<div class="six wide right floated column">
-		<div class="ui container right-padding">
-			<section id="currentList">
-				<div class="ui large header" style="text-align: right; margin-right: 15px;">Currently Playing</div>
-				{{#each currentMovies}}
-					{{> movie }}
-			  	{{/each}}
-			</section>
-		</div>
-
-		<div class="ui container right-padding">
-			<section id="upcomingList">
-				<div class="ui large header" style="text-align: right; margin-right: 15px;">Upcoming</div>
-				{{#each upcomingMovies}}
-					{{> movie }}
+		<div class="ui six column stackable relaxed grid">
+			<div class="ten wide column">
+				{{#each blogPosts }}
+					{{> post }}
 				{{/each}}
-			</section>
+			</div>
+			<div class="six wide column">
+				{{> movieList }}
+			</div>
 		</div>
-		<div class="ui container right-padding">
-			<section id="upcomingList">
-				<div class="ui large header" style="text-align: right; margin-right: 15px;">Unconfirmed / Rumoured / Unknown Dates</div>
-				<div class="ui top aligned celled list stackable two column grid">
-				{{#each unconfirmedMovies}}
-					{{> unconfirmedMovie }}
-				{{/each}}
-				</div>
-			</section>
-		</div>
+		<section id="upcomingList">
+			<div class="ui large header">Unconfirmed / Rumoured / Unknown Dates</div>
+			<div class="ui top aligned celled list stackable two column grid">
+			{{#each unconfirmedMovies}}
+				{{> unconfirmedMovie }}
+			{{/each}}
+			</div>
+		</section>
 	</div>
-</div>
-{{> footer }}
+	{{> footer }}
 </template>
 
-<template name="blog">	
+<template name="movieList">
+		<section id="currentList">
+			<div class="ui large header" style="text-align: right;">Currently Playing</div>
+			{{#each currentMovies}}
+				{{> movie }}
+		  	{{/each}}
+		</section>
+
+	<div class="ui container">
+		<section id="upcomingList">
+			<div class="ui large header" style="text-align: right;">Upcoming</div>
+			{{#each upcomingMovies}}
+				{{> movie }}
+			{{/each}}
+		</section>
+	</div>
 </template>
 
 <template name="header">
-	<div class="ui two column row">
-	    <div class="ui column">
-			<h1 class="ui left floated header">Marvel Cinematic Universe Calendar</h1>
+	<div class="ui six column stackable grid headline">
+	    <div class="seven wide column">
+			<h1 class="ui header">Marvel Cinematic Universe Calendar</h1>
 	    </div>
-		<div class="ui column">
+		<div class="nine wide column">
 	    	<div id="calendar"></div>
 			<div id="calendar-share-button">
 				<iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=30&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=lh599j7okgva72o6um13nnemd4%40group.calendar.google.com&amp;color=%231B887A&amp;ctz=America%2FVancouver" style="border-width:0" width="145" height="30" frameborder="0" scrolling="no"></iframe>

@@ -11,7 +11,6 @@ twbs:bootstrap
 fortawesome:fontawesome
 orionjs:filesystem
 vsivsi:orion-file-collection
-orionjs:summernote
 orionjs:froala
 orionjs:image-attribute
 orionjs:relationships

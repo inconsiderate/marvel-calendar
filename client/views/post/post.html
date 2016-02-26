@@ -1,8 +1,9 @@
 <template name="post">
-	<div class="ui container extra-padding">
+	<div class="ui segment">
 		<h1 class="ui header">{{title}}</h1>
-		<h4 class="ui dividing header">by {{createdBy}} on {{date}}</h4>
+		<h4 class="ui dividing header">{{writtenBy}} on {{date}}</h4>
 		<p></p>
-		{{body}}
+		{{{body}}}
 	</div>
+	<div class="ui horizontal divider"></div>
 </template>
