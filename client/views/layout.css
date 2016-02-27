@@ -9,7 +9,12 @@ html, body {
 
 .fc-toolbar {
     margin-bottom: 0px;
+    padding-bottom: 15px;
     background-color: #FCFFFA;
+}
+
+.ui.list > .item h3.header {
+    margin-bottom: 5px;
 }
 
 #calendar {
@@ -41,6 +46,7 @@ img {
 a {
   color: inherit;
 }
+
 
 a:hover {
     color:black;

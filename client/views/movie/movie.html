@@ -27,7 +27,7 @@
 		  		</div>
 		  		<div class="meta">{{ release }}</div>
 		  		<div class="description">
-		    		<p>{{description}}</p>
+		    		<p>{{{description}}}</p>
 		  		</div>
 		  		<div class="extra content">
 			    	{{#if studio}}
@@ -51,7 +51,7 @@
 	    <div class="meta">
 	      <span class="cinema">{{date}}</span>
 	    </div>
-	    <div class="description">{{description}}</div>
+	    <div class="description">{{{description}}}</div>
 	    <div class="extra content">
 	      {{#if trailer}}
 	      <div class="ui bottom left attached label"><a href={{trailer}} target="_blank"><i class="video play outline icon"></i>Play Trailer</a></div>
@@ -74,12 +74,11 @@
 			<div class="description">Confirmed</div>
 	    {{/if}}
 		</div>
-		<img class="ui avatar image" src={{logo.url}}>
 		<div class="content">
-			<div class="header">{{title}}</div>
-			<div class="description">{{description}}</div>
+			<img class="ui left floated avatar image" src={{logo.url}}>
+			<h3 class="header">{{title}}</h3>
+			<div class="description">{{{description}}}</div>
 		</div>
 	</div>
-	<div class="ui horizontal divider"></div>
 </template>
 

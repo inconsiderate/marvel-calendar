@@ -25,7 +25,7 @@
 
 <template name="movieList">
 		<section id="currentList">
-			<div class="ui large header" style="text-align: right;">Currently Playing</div>
+			<h2 class="ui larger header" style="text-align: right; margin-bottom: 25px;">Currently Playing</h2>
 			{{#each currentMovies}}
 				{{> movie }}
 		  	{{/each}}
@@ -33,7 +33,7 @@
 
 	<div class="ui container">
 		<section id="upcomingList">
-			<div class="ui large header" style="text-align: right;">Upcoming</div>
+			<h2 class="ui larger header" style="text-align: right; margin-bottom: 25px;">Upcoming</h2>
 			{{#each upcomingMovies}}
 				{{> movie }}
 			{{/each}}
