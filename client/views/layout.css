@@ -7,6 +7,16 @@ html, body {
     margin: 60px 0px;
 }
 
+#currentList.header {
+    text-align: right; 
+    margin-bottom: 25px;
+}
+
+#upcomingList.header {
+    text-align: right; 
+    margin-bottom: 25px;    
+}
+
 .fc-toolbar {
     margin-bottom: 0px;
     padding-bottom: 15px;

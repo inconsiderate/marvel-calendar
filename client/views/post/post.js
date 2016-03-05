@@ -1,3 +1,5 @@
+
+// SINGLE POST
 Template.post.helpers({
 	"date": function(){
 		var m = moment(this.createdAt);

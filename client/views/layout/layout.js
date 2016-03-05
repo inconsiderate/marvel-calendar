@@ -9,9 +9,10 @@ Template.layout.onRendered(function() {
 	});        
 });
 
-Template.layout.helpers({
+Template.homePage.helpers({
 	blogPosts: function() {
-		return Posts.find({});
+		return Posts.find({
+		}, {sort: { createdAt: -1 }});
 	},
 	unconfirmedMovies: function() {
 		return Movies.find({
@@ -19,25 +20,3 @@ Template.layout.helpers({
   		}, {sort: { releaseDate: 1 }});
 	},
 });
-
-Template.movieList.helpers({
-	currentMovies: function() {
-		return Movies.find({
-  			releaseDate: {$lt: new Date()},
-  			airing: true
-  		}, {sort: { releaseDate: 1 }});
-	},
-
-	upcomingMovies: function() {
-		return Movies.find({
-			releaseDate: {$gte: new Date()},
-  		}, {sort: { releaseDate: 1 }});
-	},
-
-	previousMovies: function() {
-		return Movies.find({
-			releaseDate: {$lt: new Date()},
-			airing: false
-  		}, {sort: { releaseDate: 1 }});
-	}
-})

@@ -1,3 +1,26 @@
+
+
+<!-- LIST OF ALL MOVIES -->
+<template name="movieList">
+		<section id="currentList">
+			<h2 class="ui larger header">Currently Playing</h2>
+			{{#each currentMovies}}
+				{{> movie }}
+		  	{{/each}}
+		</section>
+
+	<div class="ui container">
+		<section id="upcomingList">
+			<h2 class="ui larger header" style="text-align: right; margin-bottom: 25px;">Upcoming</h2>
+			{{#each upcomingMovies}}
+				{{> movie }}
+			{{/each}}
+		</section>
+	</div>
+</template>
+
+
+<!-- SINGLE MOVIE -->
 <template name="movie">
 	<div class="ui stackable one column grid">
 		<div class="ui blurring image column" style="padding: 0; flex-grow: 1;">
@@ -7,11 +30,11 @@
 			    {{#if watchnow}}
 			    	<div class="ui inverted button"><a href={{watchnow}} target="_blank"><i class="video play outline icon"></i> Watch Now</a></div>
 			    {{ else }}
-			    {{ #if trailer }}
-			    <div class="ui inverted button"><a href={{trailer}} target="_blank"><i class="video play outline icon"></i> Watch Trailer</a></div>
-			    {{ else }}
-			    <div>No Media Available Yet</div>
-			    {{/if}}
+				    {{ #if trailer }}
+				    <div class="ui inverted button"><a href={{trailer}} target="_blank"><i class="video play outline icon"></i> Watch Trailer</a></div>
+				    {{ else }}
+				    <div>Media Not Yet Available</div>
+				    {{/if}}
 			    {{/if}}
 			    </div>
 			  </div>
@@ -43,11 +66,12 @@
 	<div class="ui horizontal divider"></div>
 </template>
 
+
 <template name="upcomingMovie">
 	<div class="card">
 	  <div class="content">
 	  <img class="left floated mini ui image" src={{logo.url}}>
-	    <div class="header">{{title}}</div>
+	    <div class="header"><a href="/post/{{ _id }}">{{title}}</a></div>
 	    <div class="meta">
 	      <span class="cinema">{{date}}</span>
 	    </div>

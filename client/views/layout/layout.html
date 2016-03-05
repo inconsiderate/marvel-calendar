@@ -1,12 +1,18 @@
 <template name="layout">
+	{{> yield "header" }}
+	{{> yield "content" }}
+	{{> yield "footer" }}
+</template>
+
+
+<template name="homePage">
 	<div class="container">
-		{{> header }}
 		<div class="ui six column stackable relaxed grid">
 			<div class="ten wide column">
-				{{#each blogPosts }}
-					{{> post }}
-				{{/each}}
-			</div>
+			{{#each blogPosts }}
+				{{> post }}
+			{{/each}}
+		</div>
 			<div class="six wide column">
 				{{> movieList }}
 			</div>
@@ -20,26 +26,17 @@
 			</div>
 		</section>
 	</div>
-	{{> footer }}
 </template>
 
-<template name="movieList">
-		<section id="currentList">
-			<h2 class="ui larger header" style="text-align: right; margin-bottom: 25px;">Currently Playing</h2>
-			{{#each currentMovies}}
-				{{> movie }}
-		  	{{/each}}
-		</section>
 
-	<div class="ui container">
-		<section id="upcomingList">
-			<h2 class="ui larger header" style="text-align: right; margin-bottom: 25px;">Upcoming</h2>
-			{{#each upcomingMovies}}
-				{{> movie }}
-			{{/each}}
-		</section>
+<template name="blogPage">
+	<div class="container">
+	{{ #each blogPosts }}
+		{{> posts }}
+	{{ /each }}
 	</div>
 </template>
+
 
 <template name="header">
 	<div class="ui six column stackable grid headline">
@@ -54,6 +51,7 @@
 	    </div>
 	</div>
 </template>
+
 
 <template name="footer">
 	<div class="ui black inverted vertical footer segment">
