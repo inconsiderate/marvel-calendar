@@ -1,7 +1,7 @@
 
 // SINGLE MOVIE
 Template.movie.onRendered(function() {
-    $('.column .image').dimmer({
+    $('.blurring.column .image').dimmer({
         on: 'hover'
     });
 });

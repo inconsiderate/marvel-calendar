@@ -3,7 +3,10 @@ Router.configure({
 	layoutTemplate: 'layout',
     onAfterAction: function () {
         setTimeout(function(){
-
+			$('.ui.sidebar').sidebar('toggle');
+			$('.image').dimmer({
+    			on: 'hover'
+  			});
 		});
     }
 });
@@ -12,7 +15,7 @@ Router.route('/', {
     action: function() {
         this.render('header', {to: 'header'});
         this.render('footer', {to: 'footer'});
-     	this.render('homePage', {to: 'content'});   
+     	this.render('calendarpage', {to: 'content'});   
     }
 });
 
