@@ -35,14 +35,22 @@ Movies.attachSchema(new SimpleSchema({
     type: String,
     label: 'Title'
   },
+  universe: {
+    type: String,
+      label: "Universe",
+      autoform: {
+        afFieldInput: {
+          type: "select-radio-inline",
+          options: function () {
+            return { label: 'marvel', value: 'marvel' }, { label: 'dc', value: 'dc' };
+          }
+        }
+      }
+  },
   studio: {
     type: String,
     label: 'Studio',
     optional: true
-  },
-  universe: {
-    type: String,
-    label: 'Universe',
   },
   airing: {
     type: Boolean,
