@@ -48,49 +48,26 @@
 			<div class="description">
 				<p>{{{description}}}</p>
 			</div>
-			<div class="extra content">
+		</div>
+		<div class="extra content">
 			{{#if studio}}
-				<div class="ui bottom left floated item">{{studio}}</div>
+			<div class="ui bottom left floated item">{{studio}}</div>
 			{{/if}}
 			{{#if trakt}}
-				<div class="ui bottom right floated item"><a href={{trakt}} target="_blank">trakt<i class="right chevron icon"></i></a></div>
+			<div class="ui bottom right floated item"><a href={{trakt}} target="_blank">trakt<i class="right chevron icon"></i></a></div>
 			{{/if}}
-			</div>
 		</div>
 	</div>
 </template>
 
-<template name="upcomingMovie">
-	<div class="fluid card">
-	  <div class="content">
-	  <img class="left floated mini ui image" src={{logo.url}}>
-	    <div class="header"><a href="/post/{{ _id }}">{{title}}</a></div>
-	    <div class="meta">
-	      <span class="cinema">{{date}}</span>
-	    </div>
-	    <div class="description">{{{description}}}</div>
-	    <div class="extra content">
-	      {{#if trailer}}
-	      <div class="ui bottom left attached label"><a href={{trailer}} target="_blank"><i class="video play outline icon"></i>Play Trailer</a></div>
-	      {{/if}}
-	      {{#if trakt}}
-	      <div class="ui bottom right attached label"><a href={{trakt}} target="_blank">trakt<i class="right chevron icon"></i></a></div>
-	      {{/if}}
-	    </div>
-	  </div>
+<template name="featuredHeaderBanner">
+	<div class="four wide column">
+		<img class="column popupie" src={{banner.url}} data-html="<img class='left floated avatar ui image' src={{logo.url}}>Now Airing!">
 	</div>
-	<div class="ui horizontal divider"></div>
 </template>
 
-<template name="unconfirmedMovie">
-  <div class="item">
-    <img class="ui avatar image" src={{logo.url}}>
-    <div class="content">
-      <a class="header">{{title}}</a>
-      <div class="description">
-        {{{description}}}
-      </div>
-    </div>
-  </div>
+<template name="upcomingHeaderBanner">
+	<div class="four wide column">
+		<img class="column popupie" src={{banner.url}} data-html="<img class='left floated avatar ui image' src={{logo.url}}>{{release}}">
+	</div>
 </template>
-
