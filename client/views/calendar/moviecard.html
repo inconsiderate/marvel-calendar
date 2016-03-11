@@ -1,21 +1,7 @@
 
-
-<!-- LIST OF ALL MOVIES -->
-<template name="movieList">
-		<section id="currentList">
-			<h2 class="ui larger header">Currently Playing</h2>
-			{{#each currentMovies}}
-				{{> movie }}
-		  	{{/each}}
-		</section>
-
-	<div class="ui container">
-		<section id="upcomingList">
-			<h2 class="ui larger header" style="text-align: right; margin-bottom: 25px;">Upcoming</h2>
-			{{#each upcomingMovies}}
-				{{> movie }}
-			{{/each}}
-		</section>
+<template name="comingSoonMovie">
+	<div class="four wide column">
+		<img class="column popupie" src={{banner.url}} data-html="<img class='left floated avatar ui image' src={{logo.url}}>{{release}}">
 	</div>
 </template>
 
@@ -39,13 +25,13 @@
 			</div>
 			<img class="ui fluid dimmable image" src={{banner.url}}>
 		</div>
-		<div class="content">
+		<div class="left aligned content">
 			<img class="right floated avatar large ui image" src={{logo.url}}>
 			<div class="header">
 				{{title}}
 			</div>
 			<div class="meta">{{ release }}</div>
-			<div class="description">
+			<div class="center aligned description">
 				<p>{{{description}}}</p>
 			</div>
 		</div>
@@ -57,17 +43,5 @@
 			<div class="ui bottom right floated item"><a href={{trakt}} target="_blank">trakt<i class="right chevron icon"></i></a></div>
 			{{/if}}
 		</div>
-	</div>
-</template>
-
-<template name="featuredHeaderBanner">
-	<div class="four wide column">
-		<img class="column popupie" src={{banner.url}} data-html="<img class='left floated avatar ui image' src={{logo.url}}>Now Airing!">
-	</div>
-</template>
-
-<template name="upcomingHeaderBanner">
-	<div class="four wide column">
-		<img class="column popupie" src={{banner.url}} data-html="<img class='left floated avatar ui image' src={{logo.url}}>{{release}}">
 	</div>
 </template>

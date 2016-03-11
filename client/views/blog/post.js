@@ -11,7 +11,7 @@ Template.post.helpers({
 	},
 });
 
-Template.blog.helpers({
+Template.blogpage.helpers({
 	posts: function() {
 		return Posts.find({}, {sort: { createdAt: -1 }});
 	},

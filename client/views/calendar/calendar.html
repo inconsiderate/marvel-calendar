@@ -2,7 +2,7 @@
 
 	<div class="ui centered three column stackable relaxed grid container special cards">
 	<h4 class="ui horizontal header divider"><span>Now Playing</span></h4>		
-	{{#each currentHeaderMovies}}
+	{{#each currentCalendarMovies}}
 		{{> moviecard}}
 	{{/each}}
 	</div>
@@ -10,8 +10,8 @@
 	<div class="ui equal width grid container large screen only">
 		<div class="row">
 		<h4 class="ui horizontal header divider"><span>Confirmed and Upcoming</span></h4>		
-		{{#each upcomingHeaderMovies}}
-			{{> upcomingHeaderBanner}}
+		{{#each comingSoonCalendarMovies}}
+			{{> comingSoonMovie}}
 		{{/each}}
 		</div>
 	</div>

@@ -9,8 +9,6 @@ Router.configure({
 	loadingTemplate: 'loading',
 	layoutTemplate: 'layout',
     onAfterAction: function () {
-    },
-    onAfterAction: function () {
         setTimeout(function(){
         })
     }
@@ -25,6 +23,9 @@ Router.route('/', {
 Router.route('/calendar', {
     onAfterAction: function() {
         changeMenuTabs('#nav-cal');
+    },
+    waitOn: function () {
+        return Meteor.subscribe('movies');
     },
     action: function() {
         this.render('header', {to: 'header'});
@@ -46,8 +47,11 @@ Router.route('/blog', {
     onAfterAction: function() {
         changeMenuTabs('#nav-blog');
     },
+    waitOn: function () {
+        return Meteor.subscribe('posts');
+    },
     action: function() {
-    	this.render('blog', {to: 'content'});
+    	this.render('blogpage', {to: 'content'});
     }
 });
 
