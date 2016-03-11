@@ -42,7 +42,7 @@ Movies.attachSchema(new SimpleSchema({
         afFieldInput: {
           type: "select-radio-inline",
           options: function () {
-            return { label: 'marvel', value: 'marvel' }, { label: 'dc', value: 'dc' };
+            return { marvel: 'Marvel', dc: 'DC' };
           }
         }
       }
