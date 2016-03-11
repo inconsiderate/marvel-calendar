@@ -1,4 +1,12 @@
 
+<template name="blog">
+	<div class="container">
+	{{ #each posts }}
+		{{> post }}
+	{{ /each }}
+	</div>
+</template>
+
 
 <template name="post">
 	<div class="ui segment" id="{{ _id }}">

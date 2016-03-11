@@ -8,5 +8,11 @@ Template.post.helpers({
 	"writtenBy": function(){
 		var id = this.createdBy;
         return Meteor.users.findOne({_id: id}).profile.name;
-	}
-})
+	},
+});
+
+Template.blog.helpers({
+	posts: function() {
+		return Posts.find({}, {sort: { createdAt: -1 }});
+	},
+});

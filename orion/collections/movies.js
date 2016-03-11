@@ -20,7 +20,8 @@ Movies = new orion.collection('movies', {
       orion.attributeColumn('image', 'logo', orion.helpers.getTranslation('movies.schema.logo')),
       orion.attributeColumn('image', 'banner', orion.helpers.getTranslation('movies.schema.banner')),
       { data: 'rumoured', title: 'rumoured' },
-      { data: 'studio', title: 'studio'}
+      { data: 'studio', title: 'studio'},
+      { date: 'universe', title: 'universe'}
     ]
   }
 });
@@ -38,6 +39,10 @@ Movies.attachSchema(new SimpleSchema({
     type: String,
     label: 'Studio',
     optional: true
+  },
+  universe: {
+    type: String,
+    label: 'Universe',
   },
   airing: {
     type: Boolean,

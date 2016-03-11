@@ -1,12 +1,12 @@
 
 // SINGLE MOVIE
-Template.movie.onRendered(function() {
-    $('.blurring.column .image').dimmer({
+Template.moviecard.onRendered(function() {
+    $('.cards .image').dimmer({
         on: 'hover'
     });
 });
 
-Template.movie.helpers({
+Template.moviecard.helpers({
 	"release": function(){
 		var m = moment(this.releaseDate);
 		return moment(m).format("dddd, MMMM Do YYYY");

@@ -1,4 +1,21 @@
 
+
+Template.header.events({
+// 	"click .menubutton": function (event) {
+// 		$('.menu.sidebar').sidebar('toggle');
+// 	},
+  	'click #nav-cal': function () {
+  		event.preventDefault();
+    	Router.go('/calendar');
+  	},
+  	'click #nav-shows': function () {
+    	Router.go('/thelist');
+  	},
+  	'click #nav-blog': function () {
+    	Router.go('/blog');
+  	}
+});
+
 Template.layout.onRendered(function() {
 	this.subscribe('movies');
 	this.subscribe('posts');
@@ -26,31 +43,3 @@ Template.upcomingHeaderBanner.helpers({
 		return moment(m).format("MMMM Do, YYYY");
 	}
 });
-
-Template.homePage.helpers({
-
-	blogPosts: function() {
-		return Posts.find({}, {sort: { createdAt: -1 }});
-	},
-	unconfirmedMovies: function() {
-		return Movies.find({
-			releaseDate: null,
-  		}, {sort: { releaseDate: 1 }});
-	}
-
-});
-
-
-Template.header.helpers({
-	currentHeaderMovies: function() {
-		return Movies.find({
-  			releaseDate: {$lt: new Date()},
-  			airing: true
-  		}, {sort: { releaseDate: 1 }});
-	},
-	upcomingHeaderMovies: function() {
-		return Movies.find({
-			releaseDate: {$gte: new Date()},
-  		}, {sort: { releaseDate: 1 }});
-  	},
-})

@@ -1,0 +1,40 @@
+<template name="calendarpage">
+
+	<div class="ui centered three column stackable relaxed grid container special cards">
+	<h4 class="ui horizontal header divider"><span>Now Playing</span></h4>		
+	{{#each currentHeaderMovies}}
+		{{> moviecard}}
+	{{/each}}
+	</div>
+
+	<div class="ui equal width grid container large screen only">
+		<div class="row">
+		<h4 class="ui horizontal header divider"><span>Confirmed and Upcoming</span></h4>		
+		{{#each upcomingHeaderMovies}}
+			{{> upcomingHeaderBanner}}
+		{{/each}}
+		</div>
+	</div>
+
+	<div class="ui centered stackable grid headline container">
+		<div class="column">
+	    	<div id="calendar"></div>
+			<div id="calendar-share-button">
+				<iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=30&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=lh599j7okgva72o6um13nnemd4%40group.calendar.google.com&amp;color=%231B887A&amp;ctz=America%2FVancouver" style="border-width:0" width="145" height="30" frameborder="0" scrolling="no"></iframe>
+			</div>
+	    </div>
+	</div>
+
+	<div class="ui two column very relaxed stackable grid container">
+	    <div class="eight wide column">
+	    	<h4 class="ui horizontal header divider"><span>About the Project</span></h4>
+		    <p>Click the +Google Calendar button above to add the entire Marvel lineup to your own personal Google calendar.</p>
+			<p>This calendar is updated regularily, but if you spot any mistakes please let me know at one of the contact options below.</p>
+	  	</div>
+		<div class="eight wide column">
+			<h4 class="ui horizontal header divider"><span>Why DC Sucks</span></h4>
+	    	<p>Everyone knows that Marvel is the best of superhero movie studios. Let's first talk about <a href="http://whatculture.com/comics/10-most-sexist-comic-superheroines-still-being-published-today.php">sexism</a> and <a href="http://guff.com/why-your-favorite-comic-book-was-probably-racist">racism</a>. Actually we don't have to, because those articles are already all over the internet. DC movies are just boring. Even <a href="http://www.slashfilm.com/joss-whedons-theory-on-why-dc-comic-book-movies-usually-suck/">Joss Whedon thinks so</a>. Seriously, you can't argue with that. </p>
+	    	<p>For every dark and brooding DC movie, there's an upbeat and slightly off-kilter Marvel movie to match it. DC continues along churning out the same tired old formula, hoping they can create a Marvel-styled empire based on their own comics. Sorry. Stan Lee has you beat, every time.</p>
+		</div>
+	</div>
+</template>

@@ -1,142 +1,60 @@
 <template name="layout">
-		{{> yield "header" }}
+	{{> yield "header" }}
 	{{> yield "content" }}
 	{{> yield "footer" }}
 </template>
 
-
-<template name="homePage">
-	<div class="container">
-		<div class="ui six column stackable relaxed grid">
-			<div class="ten wide column">
-			{{#each blogPosts }}
-				{{> post }}
-			{{/each}}
-		</div>
-			<div class="six wide column">
-				{{> movieList }}
-			</div>
-		</div>
-		<section id="upcomingList">
-			<div class="ui large header">Unconfirmed / Rumoured / Unknown Dates</div>
-			<div class="ui top aligned celled list stackable two column grid">
-			{{#each unconfirmedMovies}}
-				{{> unconfirmedMovie }}
-			{{/each}}
-			</div>
-		</section>
-	</div>
-</template>
-
-
-<template name="blogPage">
-	<div class="container">
-	{{ #each blogPosts }}
-		{{> posts }}
-	{{ /each }}
-	</div>
-</template>
-
-<!-- <template name="header">
-	<div class="ui equal width grid container large screen only">
-	<div class="row" style="padding: 0">
-	{{#each currentHeaderMovies}}
-		{{> featuredHeaderBanner}}
-	{{/each}}
-		<div class="column">
-			<div class="ui four column grid" style="margin-top: 0;">
-				{{#each upcomingHeaderMovies1}}
-					{{> upcomingHeaderBanner1}}
-				{{/each}}
-		    </div>			
-		</div>
-		</div>
-		<div class="row" style="padding: 0">
-		{{#each upcomingHeaderMovies2}}
-			{{> upcomingHeaderBanner2}}
-		{{/each}}
-		</div>
-	</div>
-</template> -->
-	
 <template name="featuredHeaderBanner">
-	<div class="four wide column" style="padding: 0;">
+	<div class="four wide column">
 		<img class="column popupie" src={{banner.url}} data-html="<img class='left floated avatar ui image' src={{logo.url}}>Now Airing!">
 	</div>
 </template>
 
 <template name="upcomingHeaderBanner">
-	<div class="four wide column" style="padding: 0;">
+	<div class="four wide column">
 		<img class="column popupie" src={{banner.url}} data-html="<img class='left floated avatar ui image' src={{logo.url}}>{{release}}">
 	</div>
 </template>
 
 <template name="header">
-<div class="ui inverted vertical masthead center aligned segment">
-    <div class="ui container">
-      <div class="ui large secondary inverted pointing menu">
-        <a class="active item">Calendar</a>
-        <a class="item popupie" data-content="Coming Soon!">Movies</a>
-        <a class="item popupie" data-content="Coming Soon!">TV Shows</a>
-        <a class="item popupie" data-content="Coming Soon!">Blog</a>
-        <div class="right item">
-		<button class="ui inverted grey button" id="marvelbutton" data-content="Coming Soon!">Marvel</button>
-		<button class="popupie ui inverted grey button" data-content="Coming Soon!">DC</button>
+	<div class="ui inverted vertical masthead center aligned segment">
+	    <div class="ui container">
+			<div class="ui large secondary inverted pointing menu">
+		        <a id="nav-cal" class="active item">Calendar</a>
+		        <a id="nav-shows" class="item popupie" data-content="Coming Soon!">The List</a>
+		        <a id="nav-blog" class="item" >Blog</a>
+		        <div class="right item">
+					<button class="ui inverted grey button" id="marvelbutton" data-content="Coming Soon!">Marvel</button>
+					<button class="popupie ui inverted grey button" data-content="Coming Soon (maybe)!">DC</button>
+				</div>
+			</div>
+	    </div>
+
+		<div class="ui left vertical menu sidebar mobile only">
+	        <a class="active item">Calendar</a>
+	        <a class="item popupie" data-content="Coming Soon!">Movies</a>
+	        <a class="item popupie" data-content="Coming Soon!">TV Shows</a>
+	        <a class="item popupie" data-content="Coming Soon!">Blog</a>
 		</div>
-      </div>
-    </div>
 
     <div class="ui text container">
       <h1 class="ui inverted header">Marvel Cinematic Universe Calendar</h1>
+      <p>Your one-stop for all things Marvel Studios</p>
     </div>
-
-	<div class="ui equal width grid container large screen only">
-		<div class="row" style="padding: 0">
-		<h4 class="ui horizontal header inverted divider"><span>Now Playing</span></h4>		
-		{{#each currentHeaderMovies}}
-			{{> featuredHeaderBanner}}
-		{{/each}}
-		</div>
-		<div class="row" style="padding: 0">
-		<h4 class="ui horizontal header inverted divider"><span>Coming Soon</span></h4>		
-		{{#each upcomingHeaderMovies}}
-			{{> upcomingHeaderBanner}}
-		{{/each}}
-		</div>
-	</div>
-</div>
- </template>
-
-<template name="calendarpage">
-	<div class="ui six column centered stackable grid headline">
-		<div class="ten wide column">
-	    	<div id="calendar"></div>
-			<div id="calendar-share-button">
-				<iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=30&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=lh599j7okgva72o6um13nnemd4%40group.calendar.google.com&amp;color=%231B887A&amp;ctz=America%2FVancouver" style="border-width:0" width="145" height="30" frameborder="0" scrolling="no"></iframe>
-			</div>
-	    </div>
-	</div>
-
-	<div class="ui text container" id="infotext">
-	<h4 class="ui horizontal header divider"><span>About the Project</span></h4>
-	<p>Click the +Google Calendar button above to add the entire Marvel lineup to your own personal Google calendar.</p>
-	<p>This calendar is updated regularily, but if you spot any mistakes please let me know at meiskant@gmail.com</p>
-	<p></p>
 	</div>
 </template>
 
-
 <template name="footer">
-	<div class="ui black inverted vertical footer segment">
+	<div class="ui inverted vertical footer segment">
 	  <p></p>
 	  <div class="ui center aligned">
 	      <h4 class="ui center aligned inverted header">
-	        made with <i class="red heart icon"></i> and meteor
+	        made with <i class="red heart icon"></i> and meteor by
 	      </h4>
 	  <div class="ui center aligned">
 	    <h1 class="ui center aligned inverted header">
-	      <a href="https://github.com/inconsiderate/mcu"><i class="github icon"></i></a><a href="https://twitter.com/michaelkant"><i class="twitter icon"></i></a><a href="https://www.linkedin.com/in/michaelkant"><i class="linkedin icon"></i></a>
-	      <p><a href="http://michaelkant.com">michael kant</a></p>
+			<a class="myname" href="http://michaelkant.com">michael kant</a>
+			<p><a href="mailto://meiskant@gmail.com"><i class="at icon"></i></a><a href="https://github.com/inconsiderate/mcu"><i class="github icon"></i></a><a href="https://twitter.com/michaelkant"><i class="twitter icon"></i></a><a href="https://www.linkedin.com/in/michaelkant"><i class="linkedin icon"></i></a></p>
 	    </h1>
 	  </div>
 	    <div class="container"></div>

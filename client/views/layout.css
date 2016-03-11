@@ -3,16 +3,39 @@ html, body {
   background-color: #FCFFFA;
 }
 
+.myname {
+    font-size: 3rem;
+}
+
 .ui.grid.headline {
     margin: 60px 0px;
 }
 
-.ui.horizontal.inverted.divider {
-    margin: 3em 10em;
+.container .divider {
+    /*padding-top: 50px;*/
+    margin-bottom: 30px;
 }
 
-.ui.equal.width.grid.container {
-    margin-bottom: 8em;
+a {
+    font-weight: bold;
+}
+
+.ui.horizontal.inverted.divider {
+    margin: 2em 0em;
+}
+
+.masthead.center.aligned.segment {
+    padding-bottom: 5em;
+    margin-bottom: 4em;
+}
+
+.ui.inverted.vertical.footer.segment {
+    padding: 5em;
+}
+
+.ui.two.column.very.relaxed.grid {
+    position: relative;
+    margin-bottom: 4em;
 }
 
 #marvelbutton {
@@ -62,6 +85,13 @@ html, body {
 .orion-bootstrap-admin img {
     max-width: 2.5em;
 }
+
+.popupie {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+
 
 .ui.fluid.card {
     margin: 0.5em 0em;
