@@ -36,10 +36,15 @@ Router.route('/calendar', {
 
 Router.route('/thelist', {
     onAfterAction: function() {
-        changeMenuTabs('#nav-shows');
+        changeMenuTabs('#nav-thelist');
+    },    
+    waitOn: function () {
+        return Meteor.subscribe('movies');
     },
     action: function() {
-    	this.redirect('/calendar');
+        this.render('header', {to: 'header'});
+        this.render('footer', {to: 'footer'});
+        this.render('thelistpage', {to: 'content'});
     }
 });
 
@@ -51,6 +56,8 @@ Router.route('/blog', {
         return Meteor.subscribe('posts');
     },
     action: function() {
+        this.render('header', {to: 'header'});
+        this.render('footer', {to: 'footer'});
     	this.render('blogpage', {to: 'content'});
     }
 });

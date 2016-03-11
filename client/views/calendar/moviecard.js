@@ -14,7 +14,7 @@ Template.moviecard.helpers({
 });
 
 Template.comingSoonMovie.onRendered(function() {
-	$('.popupie').popup();
+	$('.tooltip-popup').popup();
 });
 
 Template.comingSoonMovie.helpers({

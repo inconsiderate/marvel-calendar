@@ -19,8 +19,8 @@ Template.calendarpage.helpers({
 			releaseDate: {$gte: new Date()},
   		}, {sort: { releaseDate: 1 }});
   	},
-  	rumouredCalendarMovies: function() {
-		return Movies.find({rumoured: true});
-  	},
+  	unconfirmedCalendarMovies: function() {
+  		return Movies.find({rumoured: true});
+  	}
 })
 

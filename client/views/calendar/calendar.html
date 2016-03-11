@@ -16,8 +16,16 @@
 		</div>
 	</div>
 
+	<div class="ui grid items container large screen only">
+		<h4 class="ui horizontal header divider"><span>Rumoured or Unconfirmed</span></h4>		
+		{{#each unconfirmedCalendarMovies}}
+			{{> rumouredMovie}}
+		{{/each}}
+	</div>
+
 	<div class="ui centered stackable grid headline container">
 		<div class="column">
+			<h4 class="ui horizontal header divider"><span>The Infamous Calendar</span></h4>
 	    	<div id="calendar"></div>
 			<div id="calendar-share-button">
 				<iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=30&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=lh599j7okgva72o6um13nnemd4%40group.calendar.google.com&amp;color=%231B887A&amp;ctz=America%2FVancouver" style="border-width:0" width="145" height="30" frameborder="0" scrolling="no"></iframe>
