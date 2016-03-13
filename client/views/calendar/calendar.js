@@ -20,7 +20,7 @@ Template.calendarpage.helpers({
   		}, {sort: { releaseDate: 1 }});
   	},
   	unconfirmedCalendarMovies: function() {
-  		return Movies.find({rumoured: true});
+  		return Movies.find({releaseDate: null});
   	}
 })
 

@@ -21,9 +21,15 @@
 		  <div class="description">
 		    {{{description}}}
 		  </div>
+		  {{#if rumoured}}
 		  <div class="extra">
 		    <div class="right floated"><a href={{rumourSource}} target="_blank">rumour source<i class="right chevron icon"></i></a></div>
 		  </div>
+		  {{else}}
+		  <div class="extra">
+		    <div class="right floated"><a href={{rumourSource}} target="_blank">confirmed source<i class="right chevron icon"></i></a></div>
+		  </div>
+		  {{/if}}
 		</div>
 	</div>
 </template>

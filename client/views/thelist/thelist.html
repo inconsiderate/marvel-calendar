@@ -1,25 +1,25 @@
 <template name="thelistpage">
-
-	<div class="ui grid items container large screen only">
+<div class="container">
+	<div class="ui grid items">
 		<h4 class="ui horizontal header divider"><span>Now Playing</span></h4>		
 		{{#each currentListMovies}}
 			{{> moviecard}}
 		{{/each}}
 	</div>
 
-	<div class="ui grid items container large screen only">
+	<div class="ui grid items">
 		<h4 class="ui horizontal header divider"><span>Coming Soon</span></h4>		
 		{{#each comingSoonListMovies}}
 			{{> comingSoonMovie}}
 		{{/each}}
 	</div>
 
-	<div class="ui grid items container large screen only">
+	<div class="ui grid items">
 		<h4 class="ui horizontal header divider"><span>Rumoured or Unconfirmed</span></h4>		
 		{{#each unconfirmedListMovies}}
 			{{> rumouredMovie}}
 		{{/each}}
 	</div>
-
+</div>
 </template>
 
