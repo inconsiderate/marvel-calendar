@@ -1,16 +1,22 @@
 
 <template name="comingSoonMovie">
 	<div class="four wide column">
-		<img class="column tooltip-popup movie-image" src={{banner.url}} data-html="<img class='left floated avatar ui image' src={{logo.url}}>{{release}}">
+		<img class="column tooltip-popup movie-image" src={{banner.url}} 
+			data-html="{{#if logo.url}}
+						<img class='left floated avatar ui image' src={{logo.url}}>
+						{{/if}}
+						{{release}}">
 	</div>
 </template>
 
 <template name="rumouredMovie">
 	<div class="eight wide column item">
-		<div class="image">
-		  <img src="/images/wireframe/image.png">
-		</div>
 		<div class="content">
+			{{#if logo.url}}
+			<div class="ui avatar image">
+		  		<img src={{logo.url}}>
+			</div>
+			{{/if}}
 		  <a class="header">{{title}}</a>
 		  <div class="description">
 		    {{{description}}}
