@@ -1,25 +1,55 @@
 <template name="thelistpage">
 <div class="container">
-	<div class="ui grid items">
-		<h4 class="ui horizontal header divider"><span>Now Playing</span></h4>		
-		{{#each currentListMovies}}
-			{{> moviecard}}
+		<div class="ui divided items">	
+		{{#each allMovies}}
+			{{> listMovie}}
 		{{/each}}
-	</div>
-
-	<div class="ui grid items">
-		<h4 class="ui horizontal header divider"><span>Coming Soon</span></h4>		
-		{{#each comingSoonListMovies}}
-			{{> comingSoonMovie}}
-		{{/each}}
-	</div>
-
-	<div class="ui grid items">
-		<h4 class="ui horizontal header divider"><span>Rumoured or Unconfirmed</span></h4>		
-		{{#each unconfirmedListMovies}}
-			{{> rumouredMovie}}
-		{{/each}}
-	</div>
+		</div>
 </div>
 </template>
 
+
+<template name="listMovie">
+<div class="item" id="{{_id}}">
+	{{#if banner}}
+	<div class="ui blurring dimmable medium image">
+		<div class="ui dimmer">
+			<div class="content">
+				<div class="center">
+				{{#if watchnow}}
+					<div class="ui inverted button"><a href={{watchnow}} target="_blank"><i class="video play outline icon"></i> Watch Now</a></div>
+				{{ else }}
+					{{ #if trailer }}
+					<div class="ui inverted button"><a href={{trailer}} target="_blank"><i class="video play outline icon"></i> Watch Trailer</a></div>
+					{{ else }}
+					<div>Media Not Yet Available</div>
+					{{/if}}
+				{{/if}}
+				</div>
+			</div>
+		</div>
+		<img class="ui fluid dimmable image" src={{banner.url}}>
+	</div>
+	{{/if}}
+	<div class="content">
+		<div class="header">{{title}}</div>
+		{{#if rumoured}}
+		<span class="right floated"><a href={{rumourSource}} target="_blank">rumour source<i class="right chevron icon"></i></a></span>
+	  	{{/ if}}
+		<div class="meta">
+			<span class="release">{{release}}</span>
+		</div>
+		<div class="description">
+		{{{description}}}
+		</div>
+	 	<div class="extra">
+		{{#if studio}}
+			<div class="ui bottom left floated item">{{studio}}</div>
+		{{/if}}
+		{{#if trakt}}
+			<div class="ui bottom right floated item"><a href={{trakt}} target="_blank">trakt<i class="right chevron icon"></i></a></div>
+		{{/if}}
+	  	</div>
+	</div>
+</div>
+</template>

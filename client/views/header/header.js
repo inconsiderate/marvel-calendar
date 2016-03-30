@@ -6,7 +6,11 @@ Template.header.events({
   	'click #nav-thelist': function () {
     	Router.go('/thelist');
   	},
-  	'click #nav-blog': function () {
-    	Router.go('/blog');
+  	'click #nav-forum': function () {
+    	Router.go('/calendar');
   	}
+});
+
+Template.header.onRendered(function() {
+	$('.tooltip-popup').popup();
 });

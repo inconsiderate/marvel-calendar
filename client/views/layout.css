@@ -26,6 +26,7 @@ a {
 
 .ui.inverted.vertical.footer.segment {
     padding: 5em;
+    margin-top: 5em;
 }
 
 .ui.two.column.very.relaxed.grid {

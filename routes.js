@@ -23,6 +23,7 @@ Router.route('/', {
 Router.route('/calendar', {
     onAfterAction: function() {
         changeMenuTabs('#nav-cal');
+        $('.tooltip-popup').popup();
     },
     waitOn: function () {
         return Meteor.subscribe('movies');
@@ -48,9 +49,9 @@ Router.route('/thelist', {
     }
 });
 
-Router.route('/blog', {
+Router.route('/forum', {
     onAfterAction: function() {
-        changeMenuTabs('#nav-blog');
+        changeMenuTabs('#nav-forum');
     },
     waitOn: function () {
         return Meteor.subscribe('posts');
@@ -58,15 +59,15 @@ Router.route('/blog', {
     action: function() {
         this.render('header', {to: 'header'});
         this.render('footer', {to: 'footer'});
-    	this.render('blogpage', {to: 'content'});
+    	this.render('forumPage', {to: 'content'});
     }
 });
 
-Router.route('/post/:_id', {
+Router.route('/forum/:_id', {
 	action: function() {
         this.render('header', {to: 'header'});
         this.render('footer', {to: 'footer'});
-     	this.render('blogPage', {to: 'content'});   
+     	this.render('forumPage', {to: 'content'});   
 	},
 	data: function() {
 		return Posts.findOne({_id: this.params._id});
