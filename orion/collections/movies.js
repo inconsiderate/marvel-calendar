@@ -75,7 +75,7 @@ Movies.attachSchema(new SimpleSchema({
   },
   endDate: {
     type: Date,
-    label: 'Release Date',
+    label: 'End Date',
     defaultValue: null,
     optional: true
   },

@@ -10,10 +10,12 @@ Template.calendarpage.onRendered(function() {
 Template.calendarpage.helpers({
 	currentCalendarMovies: function() {
 		return Movies.find({
+			$or: [ { endDate: { $gte: new Date() } }, { endDate: null } ],
+			// endDate: {$gt: new Date() || null},
   			releaseDate: {$lt: new Date()},
-  			airing: true
   		}, {sort: { releaseDate: 1 }});
 	},
+
 	comingSoonCalendarMovies: function() {
 		return Movies.find({
 			releaseDate: {$gte: new Date()},
