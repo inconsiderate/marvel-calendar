@@ -17,6 +17,7 @@ Movies = new orion.collection('movies', {
       { data: 'airing', title: 'on air' },
       { data: 'title', title: orion.helpers.getTranslation('movies.schema.title') },
       { data: 'releaseDate', title: orion.helpers.getTranslation('movies.schema.releaseDate') },
+      { data: 'endDate', title: orion.helpers.getTranslation('movies.schema.endDate') },
       orion.attributeColumn('image', 'logo', orion.helpers.getTranslation('movies.schema.logo')),
       orion.attributeColumn('image', 'banner', orion.helpers.getTranslation('movies.schema.banner')),
       { data: 'rumoured', title: 'rumoured' },
@@ -67,6 +68,12 @@ Movies.attachSchema(new SimpleSchema({
     optional: true
   },
   releaseDate: {
+    type: Date,
+    label: 'Release Date',
+    defaultValue: null,
+    optional: true
+  },
+  endDate: {
     type: Date,
     label: 'Release Date',
     defaultValue: null,

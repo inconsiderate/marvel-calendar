@@ -3,7 +3,7 @@ Template.calendarpage.onRendered(function() {
 	$('#calendar').fullCalendar({
 		googleCalendarApiKey: 'AIzaSyC1oon8mw5yQv8tPwmcvDlTiIYCwBZnOIY',
 		events: 'lh599j7okgva72o6um13nnemd4@group.calendar.google.com',
-		height: 390,
+		height: 600,
 	});
 });
 
