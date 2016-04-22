@@ -29,9 +29,9 @@
       <img src="/images/avatar/small/matt.jpg">
     </a>
     <div class="content">
-      <a class="author">Matt</a>
+      <a class="author">{{createdBy}}</a>
       <div class="metadata">
-        <span class="date">Today at 5:42PM</span>
+        <span class="date">{{createdAt}}</span>
       </div>
       <div class="text">
         How artistic!
@@ -95,7 +95,7 @@
     </div>
   </div>
   <form class="ui reply form">
-    <div class="field">
+    <div class="field" name="comment-name">
       <textarea></textarea>
     </div>
     <div class="ui blue labeled submit icon button">
