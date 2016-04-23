@@ -16,7 +16,6 @@ Posts = new orion.collection('posts', {
     columns: [
       { data: 'title', title: orion.helpers.getTranslation('posts.schema.title') },
       orion.attributeColumn('froala', 'body', orion.helpers.getTranslation('posts.schema.body')),
-      orion.attributeColumn('image', 'image', orion.helpers.getTranslation('posts.schema.image')),
     ]
   }
 });
@@ -32,13 +31,6 @@ Posts.attachSchema(new SimpleSchema({
   },
   body: orion.attribute('froala', {
       label: orion.helpers.getTranslation('posts.schema.body') // We use this function to make i18n work in autoform
-  }),  
-  /**
-   * WARNING: the url of the image will not be saved in .image, it will be saved in .image.url.
-   */
-  image: orion.attribute('image', {
-      label: 'Image',
-      optional: true
   }),
   /**
    * This attribute sets the user id of the user that created this post automatically.
@@ -50,5 +42,40 @@ Posts.attachSchema(new SimpleSchema({
 Posts.helpers({
   getCreator: function () {
     return Meteor.users.findOne({ _id: this.createdBy });
+  }
+});
+  
+Meteor.methods({
+  insertNewPost: function(data) {
+    console.log('some shit', data);
+    check(this.userId, String);
+    check(data, {
+      postId: String,
+      body: String
+    });
+
+    var user = Meteor.user();
+    var post = Posts.findOne(data.postId);
+
+    if (!post) {
+      throw new Meteor.Error('invalid-comment', 'You must comment on a post');
+    }
+
+    comment = _.extend(data, {
+      userId: user._id,
+      author: user.username,
+      submitted: new Date()
+    });
+
+    // update the post with the number of comments
+    // Posts.update(comment.postId, {$inc: {commentsCount: 1}});
+
+    // create the comment, save the id
+    comment._id = Comments.insert(comment);
+
+    // now create a notification, informing the user that there's been a comment
+    // createCommentNotification(comment);
+
+    return comment._id;
   }
 });

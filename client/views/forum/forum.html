@@ -1,8 +1,16 @@
 <template name="forumPage">
 	<div class="container">
-	{{ #each posts }}
-		{{> post }}
-	{{ /each }}
+		<div class="ui accordion">
+			<div class="title">
+				<div class="ui green labeled submit icon button" id="submit-new-post-button"><i class="icon edit"></i> Create New Post</div>  
+			</div>
+			<div class="content">
+				{{> quickForm collection="Posts" id="insertBookForm" type="insert" resetOnSuccess="true"}}
+		    </div>
+		</div>
+		{{ #each posts }}
+			{{> post }}
+		{{ /each }}
 	</div>
 </template>
 
@@ -13,6 +21,17 @@
 		<p></p>
 		{{{ body }}}
 	</div>
+
+  <form class="ui form">
+    <div class="field" name="comment-name">
+      <textarea rows="2" placeholder="Enter your comment here..."></textarea>
+    </div>
+    <div class="ui blue labeled submit icon button">
+      <i class="icon edit"></i> Comment on {{ title }}
+    </div>
+  </form>
+
+
 	<div class="ui comments">
 	<h3 class="ui dividing header">Comments</h3>
 	{{ #each comments }}
@@ -34,73 +53,19 @@
         <span class="date">{{createdAt}}</span>
       </div>
       <div class="text">
-        How artistic!
+        {{{body}}}
       </div>
       <div class="actions">
-        <a class="reply">Reply</a>
+        <a class="reply" id="{{_id}}">Reply</a>
+        <form class="ui form comment-reply-form">
+          <div class="field" name="comment-name">
+            <textarea rows="2"></textarea>
+          </div>
+          <div class="ui blue labeled submit icon button">
+            <i class="icon edit"></i> Add Reply
+          </div>
+        </form>
       </div>
     </div>
   </div>
-  <div class="comment">
-    <a class="avatar">
-      <img src="/images/avatar/small/elliot.jpg">
-    </a>
-    <div class="content">
-      <a class="author">Elliot Fu</a>
-      <div class="metadata">
-        <span class="date">Yesterday at 12:30AM</span>
-      </div>
-      <div class="text">
-        <p>This has been very useful for my research. Thanks as well!</p>
-      </div>
-      <div class="actions">
-        <a class="reply">Reply</a>
-      </div>
-    </div>
-    <div class="comments">
-      <div class="comment">
-        <a class="avatar">
-          <img src="/images/avatar/small/jenny.jpg">
-        </a>
-        <div class="content">
-          <a class="author">Jenny Hess</a>
-          <div class="metadata">
-            <span class="date">Just now</span>
-          </div>
-          <div class="text">
-            Elliot you are always so right :)
-          </div>
-          <div class="actions">
-            <a class="reply">Reply</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="comment">
-    <a class="avatar">
-      <img src="/images/avatar/small/joe.jpg">
-    </a>
-    <div class="content">
-      <a class="author">Joe Henderson</a>
-      <div class="metadata">
-        <span class="date">5 days ago</span>
-      </div>
-      <div class="text">
-        Dude, this is awesome. Thanks so much
-      </div>
-      <div class="actions">
-        <a class="reply">Reply</a>
-      </div>
-    </div>
-  </div>
-  <form class="ui reply form">
-    <div class="field" name="comment-name">
-      <textarea></textarea>
-    </div>
-    <div class="ui blue labeled submit icon button">
-      <i class="icon edit"></i> Add Reply
-    </div>
-  </form>
-
 </template>

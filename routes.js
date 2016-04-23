@@ -14,7 +14,11 @@ Router.configure({
     }
 });
 
-Router.route('/', {
+Router.route('/', {    
+    onAfterAction: function() {
+        changeMenuTabs('#nav-cal');
+        $('.tooltip-popup').popup();
+    },
     action: function() {
     	this.redirect('/calendar');
     }
