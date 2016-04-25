@@ -14,30 +14,22 @@ Comments = new orion.collection('comments', {
    */
   tabular: {
     columns: [
-      { data: 'title', title: orion.helpers.getTranslation('comments.schema.title') },
-      orion.attributeColumn('froala', 'body', orion.helpers.getTranslation('comments.schema.body')),
+      { 
+        data: "postId", 
+        title: "Post ID" 
+      },{ 
+        data: "createdAt", 
+        title: "Created At" 
+      },{ 
+        data: "createdBy", 
+        title: "Author" 
+      },{ 
+        data: "body", 
+        title: "Body" 
+      }      
     ]
   }
 });
-
-/**
- * Now we will attach the schema for that collection. Orion will automatically create the corresponding form.
- */
-
-Comments.attachSchema(new SimpleSchema({
-  title: {
-    type: String,
-    label: 'Title'
-  },
-  body: orion.attribute('froala', {
-      label: orion.helpers.getTranslation('posts.schema.body') // We use this function to make i18n work in autoform
-  }),  
-  /**
-   * This attribute sets the user id of the user that created this post automatically.
-   */
-  createdBy: orion.attribute('createdBy'),
-  createdAt: orion.attribute('createdAt')
-}));
 
 Comments.helpers({
   getCreator: function () {

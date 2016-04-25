@@ -8,7 +8,6 @@ Template.post.helpers({
         return Meteor.users.findOne({_id: id}).profile.name;
 	},
 	comments: function() {
-		Meteor.subscribe('comments');
 		return Comments.find({});
 	}
 });
@@ -20,12 +19,12 @@ Template.forumPage.helpers({
 });
 
 Template.forumPage.events({
-	"submit #insertBookForm": function (event) {
-		console.log('test');
+	"submit #insertNewPostForm": function (event) {
 		$('.ui.accordion').accordion('close', 0);
     }
 })
 
 Template.forumPage.onRendered(function() {
 	$('.ui.accordion').accordion();
+	$('.ui.accordion').accordion('refresh');
 });

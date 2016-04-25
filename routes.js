@@ -58,7 +58,8 @@ Router.route('/forum', {
         changeMenuTabs('#nav-forum');
     },
     waitOn: function () {
-        return Meteor.subscribe('posts');
+        Meteor.subscribe('comments');
+        Meteor.subscribe('posts');
     },
     action: function() {
         this.render('header', {to: 'header'});

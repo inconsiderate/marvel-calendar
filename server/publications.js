@@ -2,11 +2,11 @@
  * Publish all posts
  */
 Meteor.publish('movies', function () {
-  return Movies.find({});
+	return Movies.find({});
 });
 
 Meteor.publish('posts', function () {
-  return Posts.find({});
+	return Posts.find({});
 });
 
 Meteor.publish('comments', function() {
