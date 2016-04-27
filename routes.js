@@ -8,10 +8,6 @@ var changeMenuTabs = function(selected) {
 Router.configure({
 	loadingTemplate: 'loading',
 	layoutTemplate: 'layout',
-    onAfterAction: function () {
-        setTimeout(function(){
-        })
-    }
 });
 
 Router.route('/', {    
@@ -19,8 +15,13 @@ Router.route('/', {
         changeMenuTabs('#nav-cal');
         $('.tooltip-popup').popup();
     },
+    waitOn: function () {
+        return Meteor.subscribe('movies');
+    },
     action: function() {
-    	this.redirect('/calendar');
+        this.render('header', {to: 'header'});
+        this.render('footer', {to: 'footer'});
+        this.render('calendarpage', {to: 'content'});   
     }
 });
 
