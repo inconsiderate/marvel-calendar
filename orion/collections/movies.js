@@ -72,17 +72,31 @@ Movies.attachSchema(new SimpleSchema({
     label: 'Estimated Date',
     optional: true
   },
+  // releaseDate: {
+  //   type: datetime-local,
+  //   label: 'Release Date',
+  //   defaultValue: null,
+  //   optional: true
+  // },
   releaseDate: {
     type: Date,
-    label: 'Release Date',
-    defaultValue: null,
-    optional: true
+      label: "Release Date",
+      autoform: {
+        afFieldInput: {
+          type: "datetime-local",
+        }
+      },
+      optional: true
   },
   endDate: {
     type: Date,
-    label: 'End Date',
-    defaultValue: null,
-    optional: true
+      label: "End Date",
+      autoform: {
+        afFieldInput: {
+          type: "datetime-local",
+        }
+      },
+      optional: true
   },
   description: orion.attribute('froala', {
       label: orion.helpers.getTranslation('movies.schema.description'), // We use this function to make i18n work in autoform
