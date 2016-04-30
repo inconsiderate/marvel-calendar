@@ -28,7 +28,7 @@ Template.thelistpage.onRendered(function() {
 Template.listMovie.helpers({
     "release": function(){
         if (this.releaseDate) {
-            var m = moment(this.releaseDate);
+            var m = moment(this.releaseDate).utc();
             return moment(m).format("MMMM Do YYYY");
         } else {
             return false;
