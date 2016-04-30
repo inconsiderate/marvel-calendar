@@ -39,10 +39,24 @@
 		<span class="right floated"><a href={{rumourSource}} target="_blank">rumour source<i class="right chevron icon"></i></a></span>
 	  	{{/ if}}
 		<div class="meta">
-			<span class="release">{{release}}</span>
+			<span class="release">
+			{{#if release}}
+				{{release}}
+			{{else}}
+				{{#if estimatedDate}}
+					Estimated: {{estimatedDate}}
+				{{else}}
+					Unknown Date / Just a Rumour
+				{{/if}}
+			{{/if}}
+			</span>
 		</div>
 		<div class="description">
-		{{{description}}}
+		{{#if description}}
+			{{{description}}}
+		{{else}}
+			Details unknown at this time.
+		{{/if}}
 		</div>
 	 	<div class="extra">
 		{{#if studio}}

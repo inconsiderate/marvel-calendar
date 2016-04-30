@@ -66,6 +66,11 @@ Movies.attachSchema(new SimpleSchema({
     type: String,
     label: 'Rumour Source',
     optional: true
+  },  
+  estimatedDate: {
+    type: String,
+    label: 'Estimated Date',
+    optional: true
   },
   releaseDate: {
     type: Date,
@@ -80,8 +85,9 @@ Movies.attachSchema(new SimpleSchema({
     optional: true
   },
   description: orion.attribute('froala', {
-      label: orion.helpers.getTranslation('movies.schema.description') // We use this function to make i18n work in autoform
-  }),  
+      label: orion.helpers.getTranslation('movies.schema.description'), // We use this function to make i18n work in autoform
+      optional: true
+  }),
   trailer: {
     type: String,
     label: 'Trailer',
