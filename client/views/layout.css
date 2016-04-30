@@ -119,6 +119,14 @@ a:hover {
     height: 2.25em;
 }
 
+.ui.fluid.dimmable.image {
+    height: 150px;
+}
+
+.ui.blurring.dimmable.medium.image {
+    height: 150px !important;
+}
+
 div.ui.items>.item>.image:not(.ui) {
     width: 45px;
 }
