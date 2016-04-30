@@ -120,11 +120,11 @@ a:hover {
 }
 
 .ui.fluid.dimmable.image {
-    height: 150px;
+    height: 130px;
 }
 
 .ui.blurring.dimmable.medium.image {
-    height: 150px !important;
+    height: 130px !important;
 }
 
 div.ui.items>.item>.image:not(.ui) {
