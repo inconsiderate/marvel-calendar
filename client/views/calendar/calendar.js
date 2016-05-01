@@ -11,7 +11,6 @@ Template.calendarpage.helpers({
 	currentCalendarMovies: function() {
 		return Movies.find({
 			$or: [ { endDate: { $gte: new Date() } }, { endDate: null } ],
-			// endDate: {$gt: new Date() || null},
   			releaseDate: {$lt: new Date()},
   		}, {sort: { releaseDate: 1 }});
 	},

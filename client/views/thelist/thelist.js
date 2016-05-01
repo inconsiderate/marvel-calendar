@@ -2,10 +2,10 @@
 Template.thelistpage.helpers({
     currentListMovies: function() {
         return Movies.find({
+            $or: [ { endDate: { $gte: new Date() } }, { endDate: null } ],
             releaseDate: {$lt: new Date()},
-            airing: true
-    }, {sort: { releaseDate: 1 }});
-  },
+        }, {sort: { releaseDate: 1 }});
+    },
     comingSoonListMovies: function() {
         return Movies.find({
             releaseDate: {$gte: new Date()},

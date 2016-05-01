@@ -21,13 +21,13 @@
 		  <div class="description">
 		    {{{description}}}
 		  </div>
-		  {{#if rumoured}}
+		  {{#if rumourSource}}
 		  <div class="extra">
 		    <div class="right floated"><a href={{rumourSource}} target="_blank">rumour source<i class="right chevron icon"></i></a></div>
 		  </div>
 		  {{else}}
 		  <div class="extra">
-		    <div class="right floated"><a href={{rumourSource}} target="_blank">confirmed<i class="right chevron icon"></i></a></div>
+		    <div class="right floated"><a href={{confirmationSource}} target="_blank">confirmed<i class="right chevron icon"></i></a></div>
 		  </div>
 		  {{/if}}
 		</div>
@@ -46,7 +46,7 @@
 						{{ #if trailer }}
 						<div class="ui inverted button"><a href={{trailer}} target="_blank"><i class="video play outline icon"></i> Watch Trailer</a></div>
 						{{ else }}
-						<div>Media Not Yet Available</div>
+						<div>Media Not Available</div>
 						{{/if}}
 					{{/if}}
 					</div>

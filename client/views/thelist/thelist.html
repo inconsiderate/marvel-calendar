@@ -22,7 +22,7 @@
 					{{ #if trailer }}
 					<div class="ui inverted button"><a href={{trailer}} target="_blank"><i class="video play outline icon"></i> Watch Trailer</a></div>
 					{{ else }}
-					<div>Media Not Yet Available</div>
+					<div>Media Not Available</div>
 					{{/if}}
 				{{/if}}
 				</div>
@@ -35,10 +35,12 @@
 	{{/if}}
 	<div class="content">
 		<div class="header">{{title}}</div>
-		{{#if rumoured}}
+		{{#if rumourSource}}
 		<span class="right floated"><a href={{rumourSource}} target="_blank">rumour source<i class="right chevron icon"></i></a></span>
+	  	{{ else }}
+		<span class="right floated"><a href={{confirmationSource}} target="_blank">confirmed source<i class="right chevron icon"></i></a></span>
 	  	{{/ if}}
-		<div class="meta">
+	  	<div class="meta">
 			<span class="release">
 			{{#if release}}
 				{{release}}

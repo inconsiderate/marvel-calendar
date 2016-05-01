@@ -14,15 +14,11 @@ Movies = new orion.collection('movies', {
    */
   tabular: {
     columns: [
-      { data: 'airing', title: 'on air' },
       { data: 'title', title: orion.helpers.getTranslation('movies.schema.title') },
       { data: 'releaseDate', title: orion.helpers.getTranslation('movies.schema.releaseDate') },
-      { data: 'endDate', title: orion.helpers.getTranslation('movies.schema.endDate') },
       orion.attributeColumn('image', 'logo', orion.helpers.getTranslation('movies.schema.logo')),
       orion.attributeColumn('image', 'banner', orion.helpers.getTranslation('movies.schema.banner')),
-      { data: 'rumoured', title: 'rumoured' },
-      { data: 'studio', title: 'studio'},
-      { date: 'universe', title: 'universe'}
+      { data: 'studio', title: 'studio'}
     ]
   }
 });
@@ -36,14 +32,14 @@ Movies.attachSchema(new SimpleSchema({
     type: String,
     label: 'Title'
   },
-  universe: {
-    type: String,
-      label: "Universe",
+  attributes: {
+    type: [String],
+      label: "attributes",
       autoform: {
         afFieldInput: {
-          type: "select-radio-inline",
+          type: "select-checkbox-inline",
           options: function () {
-            return { marvel: 'Marvel', dc: 'DC' };
+            return { mcu: 'Marvel Shared Universe', animated: 'Animated', liveAction: 'Live Action', tv: 'TV Show', featureFilm: 'Feature Film' };
           }
         }
       }
@@ -53,18 +49,14 @@ Movies.attachSchema(new SimpleSchema({
     label: 'Studio',
     optional: true
   },
-  airing: {
-    type: Boolean,
-    label: 'Airing'
-  },
-  rumoured: {
-    type: Boolean,
-    label: 'Rumoured',
-    optional: true
-  },
   rumourSource: {
     type: String,
     label: 'Rumour Source',
+    optional: true
+  },  
+  confirmationSource: {
+    type: String,
+    label: 'Confirmation Source',
     optional: true
   },  
   estimatedDate: {
@@ -72,12 +64,6 @@ Movies.attachSchema(new SimpleSchema({
     label: 'Estimated Date',
     optional: true
   },
-  // releaseDate: {
-  //   type: datetime-local,
-  //   label: 'Release Date',
-  //   defaultValue: null,
-  //   optional: true
-  // },
   releaseDate: {
     type: Date,
       label: "Release Date",
@@ -140,3 +126,4 @@ Movies.helpers({
     return Meteor.users.findOne({ _id: this.createdBy });
   }
 });
+
