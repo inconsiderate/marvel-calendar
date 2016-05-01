@@ -5,6 +5,7 @@ Template.calendarpage.onRendered(function() {
 		events: 'lh599j7okgva72o6um13nnemd4@group.calendar.google.com',
 		height: 600,
 	});
+    changeMenuTabs('#nav-cal');
 });
 
 Template.calendarpage.helpers({

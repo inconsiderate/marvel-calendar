@@ -1,18 +1,10 @@
-var changeMenuTabs = function(selected) {
-    $('.pointing.menu a').each(function(index){
-        $(this).removeClass('active');
-    })
-    $(selected).addClass('active');
-}
-
 Router.configure({
 	loadingTemplate: 'loading',
 	layoutTemplate: 'layout',
 });
 
-Router.route('/', {    
+Router.route('/', {
     onAfterAction: function() {
-        changeMenuTabs('#nav-cal');
         $('.tooltip-popup').popup();
     },
     waitOn: function () {
@@ -27,7 +19,6 @@ Router.route('/', {
 
 Router.route('/calendar', {
     onAfterAction: function() {
-        changeMenuTabs('#nav-cal');
         $('.tooltip-popup').popup();
     },
     waitOn: function () {
@@ -42,7 +33,6 @@ Router.route('/calendar', {
 
 Router.route('/thelist', {
     onAfterAction: function() {
-        changeMenuTabs('#nav-thelist');
     },    
     waitOn: function () {
         return Meteor.subscribe('movies');
@@ -56,7 +46,6 @@ Router.route('/thelist', {
 
 Router.route('/forum', {
     onAfterAction: function() {
-        changeMenuTabs('#nav-forum');
     },
     waitOn: function () {
         Meteor.subscribe('comments');

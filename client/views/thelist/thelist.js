@@ -23,6 +23,7 @@ Template.thelistpage.onRendered(function() {
     $('.dimmable.image').dimmer({
         on: 'hover'
     });
+    changeMenuTabs('#nav-thelist');
 });
 
 Template.listMovie.helpers({
