@@ -29,7 +29,6 @@ Template.post.helpers({
         return Meteor.users.findOne({_id: id}).profile.name;
 	},
 	comments: function() {
-		// var comments = Comments.find({postId: id});
 		return Comments.find({post: this._id});
 	}
 });
@@ -65,7 +64,7 @@ Template.comment.helpers({
 	},
 	writtenBy: function(){
 		var id = this.createdBy;
-        // return Meteor.users.findOne({_id: id}).profile.name;
+        return Meteor.users.findOne({_id: id}).profile.name;
 	}
 });
 

@@ -1,8 +1,22 @@
 <template name="forumPage">
 	<div class="container">
-	{{ #each posts }}
-		{{> post }}
-	{{ /each }}
+		{{#if currentUser}}
+			<div style="margin-bottom: 50px;">
+				<a href="/admin"><div class="ui right floated submit button reply-button">Manage Account</div></a>
+			</div>
+		{{ else }}
+			<div class="ui accordion" style="margin-bottom: 50px;">
+				<div class="title">
+					<div class="ui right floated submit button reply-button">Log In</div>  
+				</div>
+				<div class="content">
+					{{> orionBootstrapLogin }}
+	    		</div>
+			</div>
+		{{/if}}
+		{{ #each posts }}
+			{{> post }}
+		{{ /each }}
 	</div>
 </template>
 
@@ -22,6 +36,8 @@
 		{{> commentSubmit }}
 	    </div>
 	</div>
+	{{ else }}
+		Log In Above To Comment	
 	{{/if}}
 	<div class="ui comments">
 		<h3 class="ui dividing header">Comments</h3>
