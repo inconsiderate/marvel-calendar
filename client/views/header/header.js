@@ -6,8 +6,8 @@ Template.header.events({
   	'click #nav-thelist': function () {
     	Router.go('/thelist');
   	},
-  	'click #nav-forum': function () {
-    	Router.go('/calendar');
+  	'click #nav-news': function () {
+    	Router.go('/news');
   	}
 });
 

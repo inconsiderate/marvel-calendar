@@ -1,24 +1,8 @@
 <template name="forumPage">
 	<div class="container">
-		<div class="ui accordion">
-			<div class="title">
-				<div class="ui green labeled submit icon button" id="submit-new-post-button"><i class="icon edit"></i> Create New Post</div>  
-			</div>
-			<div class="content">
-
-				{{#autoForm collection="Posts" id="insertNewPostForm" type="insert" resetOnSuccess="true"}}
-					<fieldset>
-						{{> afQuickField name='title'}}
-						{{> afQuickField name='body'}}
-					</fieldset>
-					<button type="submit" class="btn btn-primary">Submit New Post</button>
-			 	{{/autoForm}}
-
-		    </div>
-		</div>
-		{{ #each posts }}
-			{{> post }}
-		{{ /each }}
+	{{ #each posts }}
+		{{> post }}
+	{{ /each }}
 	</div>
 </template>
 
@@ -29,15 +13,16 @@
 		<p></p>
 		{{{ body }}}
 	</div>
-
-	{{#autoForm collection="Comments" id="insertNewComment-{{ ../title }}" type="insert"}}
-		<legend>Reply to {{ title}}</legend>
-		<fieldset>
-			{{> afQuickField name='body' rows='2'}}
-			{{> afQuickField name='postId' value='{{ title }}' type='hidden'}}
-		</fieldset>
-		<button type="submit" class="btn btn-primary">Comment</button>
- 	{{/autoForm}}
+	{{#if currentUser}}
+	<div class="ui accordion">
+		<div class="title">
+			<div class="ui labeled submit icon button reply-button"><i class="icon edit"></i> Comment</div>  
+		</div>
+		<div class="content">
+		{{> commentSubmit }}
+	    </div>
+	</div>
+	{{/if}}
 	<div class="ui comments">
 		<h3 class="ui dividing header">Comments</h3>
 		{{ #each comments }}
@@ -50,17 +35,25 @@
 
 <template name="comment">
   <div class="comment">
-    <a class="avatar">
+<!--     <a class="avatar">
       <img src="/images/avatar/small/matt.jpg">
     </a>
-    <div class="content">
-      <a class="author">{{createdBy}}</a>
+ -->    <div class="content">
+      <a class="author">{{writtenBy}}</a>
       <div class="metadata">
-        <span class="date">{{createdAt}}</span>
+        <span class="date">{{date}}</span>
       </div>
       <div class="text">
         {{{body}}}
       </div>
     </div>
   </div>
+</template>
+
+<template name="commentSubmit">
+	<form name="comment" class="comment-form form">
+		<label for="body">Comment on this post</label>
+		<textarea name="body" id="body" class="form-control" rows="3"></textarea>
+		<button type="submit" class="ui small blue button">Submit Comment</button>
+	</form>
 </template>

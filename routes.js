@@ -44,12 +44,12 @@ Router.route('/thelist', {
     }
 });
 
-Router.route('/forum', {
+Router.route('/news', {
     onAfterAction: function() {
     },
     waitOn: function () {
-        Meteor.subscribe('comments');
         Meteor.subscribe('posts');
+        Meteor.subscribe('comments');
     },
     action: function() {
         this.render('header', {to: 'header'});

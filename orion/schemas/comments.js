@@ -3,13 +3,10 @@ Comments.attachSchema(new SimpleSchema({
 		type: String,
 		label: 'Body'
 	},
-	postId: orion.attribute('hasOne', { 
+	post: { 
+		type: String,
 		label: 'Post ID'
-	},{
-		collection: Posts,
-		titleField: 'title',
-		publicationName: 'commentTitle'
-	}),
+	},
 	/**
 	* This attribute sets the user id of the user that created this post automatically.
 	*/
