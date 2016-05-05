@@ -58,13 +58,13 @@ Router.route('/news', {
     }
 });
 
-Router.route('/forum/:_id', {
+Router.route('/timeline', {
+    waitOn: function () {
+        return Meteor.subscribe('movies');
+    },
 	action: function() {
         this.render('header', {to: 'header'});
         this.render('footer', {to: 'footer'});
-     	this.render('forumPage', {to: 'content'});   
-	},
-	data: function() {
-		return Posts.findOne({_id: this.params._id});
+     	this.render('timeline', {to: 'content'});   
 	}
-})
+});

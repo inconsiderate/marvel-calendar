@@ -9,14 +9,14 @@ Template.thelistpage.helpers({
     comingSoonListMovies: function() {
         return Movies.find({
             releaseDate: {$gte: new Date()},
-    }, {sort: { releaseDate: 1 }});
-  },
-  unconfirmedListMovies: function() {
-    return Movies.find({rumoured: true});
-  },
-  allMovies: function() {
-    return Movies.find({}, {sort: { title: 1 }});
-  }
+        }, {sort: { releaseDate: 1 }});
+    },
+    unconfirmedListMovies: function() {
+        return Movies.find({rumoured: true});
+    },
+    allMovies: function() {
+        return Movies.find({}, {sort: { title: 1 }});
+    }
 })
 
 Template.thelistpage.onRendered(function() {
