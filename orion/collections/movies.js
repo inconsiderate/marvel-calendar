@@ -110,6 +110,10 @@ Movies.attachSchema(new SimpleSchema({
       label: 'Logo Image',
       optional: true
   }),
+  poster: orion.attribute('image', {
+      label: 'Poster Image',
+      optional: true
+  }),
   banner: orion.attribute('image', {
       label: 'Banner Image',
       optional: true

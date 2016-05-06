@@ -12,14 +12,3 @@ Template.moviecard.helpers({
 		return moment(m).format("MMMM Do YYYY");
 	}
 });
-
-Template.comingSoonMovie.onRendered(function() {
-	$('.tooltip-popup').popup();
-});
-
-Template.comingSoonMovie.helpers({
-	"release": function(){
-		var m = moment(this.releaseDate);
-		return moment(m).format("MMMM Do YYYY");
-	}
-});

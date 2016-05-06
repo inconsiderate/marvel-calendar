@@ -30,8 +30,11 @@ Template.timeline.onRendered(function() {
 
 Template.timeline.helpers({
     timelineItems: function() {
-        return Movies.find({}, {sort: { title: 1 }});
-    },
+        return Movies.find({}, {sort: { releaseDate: -1 }});
+    }
+});
+
+Template.timelineItem.helpers({
     release: function(){
         if (this.releaseDate) {
             var m = moment(this.releaseDate).utc();
@@ -40,4 +43,4 @@ Template.timeline.helpers({
             return false;
         }
     }
-})
+});

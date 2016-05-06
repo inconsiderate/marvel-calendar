@@ -9,51 +9,69 @@
 
 <template name="timelineItem2">
 	<div class="cd-timeline-block">
-
+		{{#if logo.url}}
 		<div class="cd-timeline-img cd-picture">
-			{{#if logo.url}}
 			<img src="{{logo.url}}" alt="Logo">
-			{{/if}}
-		</div> <!-- cd-timeline-img -->
+		</div>
+		{{ else }}
+		<div class="cd-timeline-img cd-picture border">
+		</div>
+		{{/if}}
 
 		<div class="cd-timeline-content">
-		<div class="ui card">
-			<div class="content">
-		    <i class="right floated like icon"></i>
-		    <i class="right floated star icon"></i>
-		    <div class="header">Some Sort Of Title</div>
-		    <div class="description">
-		      <p>This is a lot of important information.</p>
-		    </div>
-		  </div>
-		  <div class="extra content">
-		    <span class="left floated like">
-		      <i class="like icon"></i>
-		      Like
-		    </span>
-		    <span class="right floated star">
-		      <i class="star icon"></i>
-		      Favorite
-		    </span>
-		  </div>
+			<div class="ui card">
+				<div class="content">
+					<i class="right floated like icon"></i>
+					<i class="right floated star icon"></i>
+					<div class="header">Some Sort Of Title</div>
+					<div class="description">
+						<p>This is a lot of important information.</p>
+					</div>
+				</div>
+				<div class="extra content">
+					<span class="left floated like">
+						<i class="like icon"></i>
+						Like
+					</span>
+					<span class="right floated star">
+						<i class="star icon"></i>
+						Favorite
+					</span>
+				</div>
+			</div>
 		</div>
-		</div> <!-- cd-timeline-content -->
 	</div>
 </template>
 
 <template name="timelineItem">
 	<div class="cd-timeline-block">
+		{{#if logo.url}}
 		<div class="cd-timeline-img cd-picture">
-			{{#if logo.url}}
 			<img src="{{logo.url}}" alt="Logo">
-			{{/if}}
-		</div> <!-- cd-timeline-img -->
+		</div>
+		{{ else }}
+		<div class="cd-timeline-img cd-picture border">
+		</div>
+		{{/if}}
 
 		<div class="cd-timeline-content">
-			<h2>{{title}}</h2>
-			<p>{{{description}}}</p>
-			<a href="#0" class="cd-read-more">Read more</a>
-			<span class="cd-date">Sept 23rd, 2016</span>
+
+			<div class="movie-poster" style="
+				float: left;
+    			margin-right: 15px;
+				height: 210px; 
+				width: 150px; 
+				background-image: url('{{poster.url}}'); 
+				background-size: contain;
+	    		background-position: center;
+	    		background-repeat: no-repeat;">
+			</div>
+			<div class="movie-info">
+				<h2>{{title}}</h2>
+				<p>{{{description}}}</p>
+				<!-- <a href="#0" class="cd-read-more">Read more</a> -->
+				<span class="cd-date">{{release}}</span>
+			</div>
 		</div> <!-- cd-timeline-content -->
 	</div> <!-- cd-timeline-block -->
 </template>
