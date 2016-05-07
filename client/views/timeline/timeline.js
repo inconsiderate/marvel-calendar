@@ -7,7 +7,6 @@ Template.timeline.onRendered(function() {
 
 	//on scolling, show/animate timeline blocks when enter the viewport
 	$(window).on('scroll', function(){
-		console.log('scrolling');
 		(!window.requestAnimationFrame) 
 			? setTimeout(function(){ showBlocks(timelineBlocks, offset); }, 100)
 			: window.requestAnimationFrame(function(){ showBlocks(timelineBlocks, offset); });
@@ -15,13 +14,11 @@ Template.timeline.onRendered(function() {
 
 	function hideBlocks(blocks, offset) {
 		blocks.each(function(){
-			console.log('doing things hiding');
 			( $(this).offset().top > $(window).scrollTop()+$(window).height()*offset ) && $(this).find('.cd-timeline-img, .cd-timeline-content').addClass('is-hidden');
 		});
 	}
 
 	function showBlocks(blocks, offset) {
-			console.log('doing things showing');
 		blocks.each(function(){
 			( $(this).offset().top <= $(window).scrollTop()+$(window).height()*offset && $(this).find('.cd-timeline-img').hasClass('is-hidden') ) && $(this).find('.cd-timeline-img, .cd-timeline-content').removeClass('is-hidden').addClass('bounce-in');
 		});
@@ -31,6 +28,8 @@ Template.timeline.onRendered(function() {
 Template.timeline.helpers({
     timelineItems: function() {
         return Movies.find({}, {sort: { releaseDate: -1 }});
+        //TODO: return sorting by category tags.
+        //TODO: filter sorting asc, desc
     }
 });
 
