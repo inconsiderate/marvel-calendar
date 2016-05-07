@@ -66,5 +66,12 @@ Router.route('/timeline', {
         this.render('header', {to: 'header'});
         this.render('footer', {to: 'footer'});
      	this.render('timeline', {to: 'content'});   
-	}
+	},
+    data: { 
+      movie_filter: {
+        dep: new Tracker.Dependency,
+        db_selector: {},
+        available: Movies.find()
+      } 
+    }
 });
