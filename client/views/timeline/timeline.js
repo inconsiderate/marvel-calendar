@@ -26,14 +26,17 @@ Template.timeline.helpers({
 			releaseDate: {$gte: new Date()},
   		}, {sort: { releaseDate: 1 }});
   	},
-	all_movies: function() {
-      this.dep.depend();
-      return Movies.find(this.db_selector).count();
-    },
-    filtered_movies: function() {
-      this.movie_filter.dep.depend();
-      return Movies.find(this.movie_filter.db_selector);
-    }
+	filtered_movies: function() {
+		if (this.movie_filter.db_selector == "upcoming") {
+			this.movie_filter.dep.depend();
+			return Movies.find({
+				releaseDate: {$gte: new Date()},
+		  	}, {sort: { releaseDate: 1 }});			
+		} else {
+			this.movie_filter.dep.depend();
+			return Movies.find(this.movie_filter.db_selector,{sort: { releaseDate: 1 }});
+		}
+	}
 });
 
 Template.timeline.events({
@@ -42,11 +45,16 @@ Template.timeline.events({
 		// 'this' inside event handlers is the data context of the template!  Hooray!
 		this.movie_filter.db_selector = target.data('filter-value');
 		this.movie_filter.dep.changed();
-	},
-	'click #upcomingFilterButton': function(event) {
-		var now = new Date();
-		this.movie_filter.db_selector = "{releaseDate: {$gte: " + now + "},}, {sort: { releaseDate: 1 }}";
-		console.log(this.movie_filter.db_selector);
-		this.movie_filter.dep.changed();
 	}
 });
+
+Template.timelineItem.helpers({
+	release: function() {
+	    if (this.releaseDate) {
+	        var m = moment(this.releaseDate).utc();
+	        return moment(m).format("MMMM Do YYYY");
+	    } else {
+	        return false;
+	    }
+	}	
+})
