@@ -36,8 +36,8 @@ Template.timeline.helpers({
 		// } else {
 			this.movie_filter.dep.depend();
 			console.log(this.movie_filter.db_selector);
-			return Movies.find(this.movie_filter.db_selector, {sort: { releaseDate: 1 }});
-			// return Movies.find({ attributes: { $all: ['featureFilm','mcu'] }});
+			return Movies.find(this.movie_filter.db_selector, {sort: { releaseDate: -1 }});
+			// return Movies.find({ attributes: { $all: ['featureFilm','mcu'] }}, {sort: { releaseDate: 1 }});
 		// }
 	}
 });
