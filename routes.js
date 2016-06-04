@@ -1,6 +1,6 @@
 Router.configure({
 	loadingTemplate: 'loading',
-	layoutTemplate: 'layout',
+	layoutTemplate: 'layout'
 });
 
 Router.route('/', {

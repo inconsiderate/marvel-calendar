@@ -17,33 +17,52 @@ Template.timeline.onRendered(function() {
 			( $(this).offset().top <= $(window).scrollTop()+$(window).height()*offset && $(this).find('.cd-timeline-img').hasClass('is-hidden') ) && $(this).find('.cd-timeline-img, .cd-timeline-content').removeClass('is-hidden').addClass('bounce-in');
 		});
 	}
+	changeMenuTabs('#nav-timeline');
 });
 
 Template.timeline.helpers({
 	upcomingTimelineItems: function() {
         //TODO: toggle sorting asc, desc
 		return Movies.find({
-			releaseDate: {$gte: new Date()},
+			releaseDate: {$gte: new Date()}
   		}, {sort: { releaseDate: 1 }});
   	},
 	filtered_movies: function() {
-		if (this.movie_filter.db_selector == "upcoming") {
+		// if (this.movie_filter.db_selector == "upcoming") {
+		// 	this.movie_filter.dep.depend();
+		// 	return Movies.find({
+		// 		releaseDate: {$gte: new Date()},
+		//   	}, {sort: { releaseDate: 1 }});			
+		// } else {
 			this.movie_filter.dep.depend();
-			return Movies.find({
-				releaseDate: {$gte: new Date()},
-		  	}, {sort: { releaseDate: 1 }});			
-		} else {
-			this.movie_filter.dep.depend();
-			return Movies.find(this.movie_filter.db_selector,{sort: { releaseDate: 1 }});
-		}
+			console.log(this.movie_filter.db_selector);
+			return Movies.find(this.movie_filter.db_selector, {sort: { releaseDate: 1 }});
+			// return Movies.find({ attributes: { $all: ['featureFilm','mcu'] }});
+		// }
 	}
 });
 
 Template.timeline.events({
-	'click button.filter-button': function(event, template) {
-		var target = $(event.target);
-		// 'this' inside event handlers is the data context of the template!  Hooray!
-		this.movie_filter.db_selector = target.data('filter-value');
+	'click #togglebox': function(event) {
+		$('.ui.checkfilters').checkbox('uncheck');
+		this.movie_filter.db_selector = {};
+		this.movie_filter.dep.changed();
+	},
+	'click .ui.checkbox': function(event) {
+		var query = {
+			attributes: {
+				$all: []
+			}
+		};
+		var attributes = $('.checkfilters').checkbox('is checked');
+		var master = $('#masterbox').checkbox('is checked');
+		if (attributes[0] == true) query.attributes.$all.push("featureFilm");
+		if (attributes[1] == true) query.attributes.$all.push("tv");
+		if (attributes[2] == true) query.attributes.$all.push("mcu");
+		if (attributes[3] == true) query.attributes.releaseDate = {$gte: new Date()};
+		if (master == true) query = {};
+
+		this.movie_filter.db_selector = query;
 		this.movie_filter.dep.changed();
 	}
 });
@@ -57,4 +76,4 @@ Template.timelineItem.helpers({
 	        return false;
 	    }
 	}	
-})
+});

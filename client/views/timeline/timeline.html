@@ -1,19 +1,32 @@
 
 <template name="timeline">
-	<div class="ui center aligned container">
-		<button class="ui button filter-button" data-filter-value='{}'>All Items</button>
-		<button class="ui button filter-button" data-filter-value='{"attributes": "featureFilm"}'>Movies</button>
-		<button class="ui button filter-button" data-filter-value='{"attributes": "tv"}'>TV</button>
-		<button class="ui button filter-button" data-filter-value='{"attributes": "mcu"}'>Official MCU</button>
-		<button class="ui button filter-button" data-filter-value='upcoming'>Upcoming</button>
-	<!-- 	<button class="filter-button" data-filter-title='animated' data-filter-value='{"attributes": "animated"}'>Animated</button>
-		<button class="filter-button" id="upcomingFilterButton">Upcoming</button> -->
+	<div class="ui center aligned container">Filter by:
+ 		<div class="ui checkbox" id="masterbox">
+			<input id="master-filter-button" type="checkbox">
+			<label for="master-filter-button">Show All</label>
+		</div>
+ 		<div class="ui checked checkbox checkfilters">
+			<input id="movies-filter-button" type="checkbox">
+			<label for="movies-filter-button">Movies</label>
+		</div>
+		<div class="ui checkbox checkfilters">
+			<input id="tv-filter-button" type="checkbox">
+			<label for="tv-filter-button">TV</label>
+		</div>
+		<div class="ui checkbox checkfilters">
+			<input id="mcu-filter-button" type="checkbox">
+			<label for="mcu-filter-button">Official MCU</label>
+		</div>
+<!-- 		<div class="ui checkbox">
+			<input id="upcoming-filter-button" type="checkbox">
+			<label for="upcoming-filter-button">Upcoming</label>
+		</div> -->
 	</div>
 	<section id="cd-timeline" class="cd-container cssanimations">
     {{#each filtered_movies}}
 		{{> timelineItem}}
 	{{/each}}
-	</section> <!-- cd-timeline -->
+	</section>
 </template>
 
 <template name="timelineItem2">
@@ -64,7 +77,6 @@
 		{{/if}}
 
 		<div class="cd-timeline-content">
-
 			<div class="movie-poster" style="
 				float: left;
     			margin-right: 15px;
@@ -78,9 +90,8 @@
 			<div class="movie-info">
 				<h2>{{title}}</h2>
 				<p>{{{description}}}</p>
-				<!-- <a href="#0" class="cd-read-more">Read more</a> -->
 				<span class="cd-date">{{release}}</span>
 			</div>
-		</div> <!-- cd-timeline-content -->
-	</div> <!-- cd-timeline-block -->
+		</div>
+	</div>
 </template>

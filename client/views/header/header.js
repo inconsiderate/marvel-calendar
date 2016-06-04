@@ -3,8 +3,8 @@ Template.header.events({
   	'click #nav-cal': function () {
     	Router.go('/calendar');
   	},
-  	'click #nav-thelist': function () {
-    	Router.go('/thelist');
+  	'click #nav-timeline': function () {
+    	Router.go('/timeline');
   	},
   	'click #nav-news': function () {
     	Router.go('/news');
