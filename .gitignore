@@ -1,1 +1,4 @@
 lib/env.js
+.idea
+.meteor
+.DS_Store
