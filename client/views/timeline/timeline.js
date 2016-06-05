@@ -18,6 +18,7 @@ Template.timeline.onRendered(function() {
 		});
 	}
 	changeMenuTabs('#nav-timeline');
+	$('#masterbox').checkbox('check');
 });
 
 Template.timeline.helpers({
@@ -35,7 +36,6 @@ Template.timeline.helpers({
 		//   	}, {sort: { releaseDate: 1 }});			
 		// } else {
 			this.movie_filter.dep.depend();
-			console.log(this.movie_filter.db_selector);
 			return Movies.find(this.movie_filter.db_selector, {sort: { releaseDate: -1 }});
 			// return Movies.find({ attributes: { $all: ['featureFilm','mcu'] }}, {sort: { releaseDate: 1 }});
 		// }
@@ -43,12 +43,20 @@ Template.timeline.helpers({
 });
 
 Template.timeline.events({
-	'click #togglebox': function(event) {
-		$('.ui.checkfilters').checkbox('uncheck');
-		this.movie_filter.db_selector = {};
-		this.movie_filter.dep.changed();
+	'click #masterbox': function() {
+		if ($('#masterbox').checkbox('is checked')) {
+			$('.ui.checkfilters').checkbox('uncheck');
+			this.movie_filter.db_selector = {};
+			this.movie_filter.dep.changed();
+		}
 	},
-	'click .ui.checkbox': function(event) {
+	'click #movies-checkbox': function() {
+		$('#tv-checkbox').checkbox('uncheck');
+	},
+	'click #tv-checkbox': function() {
+		$('#movies-checkbox').checkbox('uncheck');
+	},	'click .ui.checkfilters': function() {
+		$('#masterbox').checkbox('uncheck');
 		var query = {
 			attributes: {
 				$all: []
@@ -61,7 +69,6 @@ Template.timeline.events({
 		if (attributes[2] == true) query.attributes.$all.push("mcu");
 		if (attributes[3] == true) query.attributes.releaseDate = {$gte: new Date()};
 		if (master == true) query = {};
-
 		this.movie_filter.db_selector = query;
 		this.movie_filter.dep.changed();
 	}
