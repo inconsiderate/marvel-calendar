@@ -19,7 +19,8 @@ Movies = new orion.collection('movies', {
       orion.attributeColumn('image', 'logo', orion.helpers.getTranslation('movies.schema.logo')),
       orion.attributeColumn('image', 'poster', orion.helpers.getTranslation('movies.schema.poster')),
       { data: 'studio', title: 'studio'},
-      {data: 'weeklyAiring', title: 'weekly'}
+      {data: 'weeklyAiring', title: 'weekly'}, 
+      {data: 'viewOrder', title: 'order'}
     ]
   }
 });
@@ -90,6 +91,11 @@ Movies.attachSchema(new SimpleSchema({
     label: 'Airs Weekly On:',
     optional: true
   },
+  viewOrder: {
+      type: Number,
+      label: 'View Order',
+      optional: true
+  }  ,
   description: orion.attribute('froala', {
       label: orion.helpers.getTranslation('movies.schema.description'), // We use this function to make i18n work in autoform
       optional: true

@@ -71,7 +71,8 @@ Router.route('/timeline', {
         movie_filter: {
             dep: new Tracker.Dependency,
             db_selector: {},
-            sort_order: 0,
+            sort_order: 1,
+            sort_param: 'releaseDate',
             available: Movies.find()
         }
     }

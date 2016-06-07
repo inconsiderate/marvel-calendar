@@ -30,8 +30,9 @@ Template.timeline.helpers({
   	},
 	filtered_movies: function() {
         this.movie_filter.dep.depend();
-        console.log(this.movie_filter.sort_order);
-        return Movies.find(this.movie_filter.db_selector, {sort: { releaseDate: this.movie_filter.sort_order }});
+        var query = {sort: {}};
+        query.sort[this.movie_filter.sort_param] = this.movie_filter.sort_order;
+        return Movies.find(this.movie_filter.db_selector, query);
         // return Movies.find({ attributes: { $all: ['featureFilm','mcu'] }}, {sort: { releaseDate: 1 }});
 	}
 });
@@ -51,31 +52,37 @@ Template.timeline.events({
 		$('#movies-checkbox').checkbox('uncheck');
         
 	},
-    'click .sort-order': function(event) {
-        $('.sort-order').each(function(){
-            $(this).removeClass('red');
+    'click .sort-ascending': function(event) {
+        $('.sort-ascending').each(function () {
+            $(this).show();
         });
-        $(event.target).addClass('red');
-        var id = $(event.target).attr('id');
-        var order;
-        (id == 'sort-timeline-asc-button') ? order = 1 : order = -1;
+        $(event.target).hide();
+        var id = $(event.target).attr('id'), order;
+        (id == 'sort-timeline-asc-button') ? order = -1 : order = 1;
         this.movie_filter.sort_order = order;
         this.movie_filter.dep.changed();
     },
-    
+    'click .sort-order': function(event) {
+        $('.sort-order').each(function () {
+            $(this).show();
+        });
+        $(event.target).hide();
+        var id = $(event.target).attr('id'), order;
+        (id == 'sort-timeline-chrono-button') ? order = 'releaseDate' : order = 'viewOrder';
+        this.movie_filter.sort_param = order;
+        this.movie_filter.dep.changed();
+    },
     'click .ui.checkfilters': function() {
 		$('#masterbox').checkbox('uncheck');
-		var query = {
-			attributes: {
-				$all: []
-			}
-		};
+		var query = {};
 		var attributes = $('.checkfilters').checkbox('is checked');
 		var master = $('#masterbox').checkbox('is checked');
-		if (attributes[0] == true) query.attributes.$all.push("featureFilm");
-		if (attributes[1] == true) query.attributes.$all.push("tv");
-		if (attributes[2] == true) query.attributes.$all.push("mcu");
-		if (attributes[3] == true) query.attributes.releaseDate = {$gte: new Date()};
+
+        if (attributes[0] == true) (query.attributes) ? query.attributes.$all.push("featureFilm") : query = {attributes: {$all: ["featureFilm"]}};
+        if (attributes[1] == true) (query.attributes) ? query.attributes.$all.push("tv") : query = {attributes: {$all: ["tv"]}};
+        if (attributes[2] == true) (query.attributes) ? query.attributes.$all.push("mcu") : query = {attributes: {$all: ["mcu"]}};
+        (attributes[3] == true) ? query.releaseDate = {$exists: false} : query.releaseDate = {$exists: true};
+		// if (attributes[3] == true) query.attributes.releaseDate = {$gte: new Date()};
 		if (master == true) query = {};
 		this.movie_filter.db_selector = query;
 		this.movie_filter.dep.changed();
