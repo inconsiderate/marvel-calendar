@@ -68,10 +68,11 @@ Router.route('/timeline', {
      	this.render('timeline', {to: 'content'});   
 	},
     data: { 
-      movie_filter: {
-        dep: new Tracker.Dependency,
-        db_selector: {},
-        available: Movies.find()
-      } 
+        movie_filter: {
+            dep: new Tracker.Dependency,
+            db_selector: {},
+            sort_order: 0,
+            available: Movies.find()
+        }
     }
 });

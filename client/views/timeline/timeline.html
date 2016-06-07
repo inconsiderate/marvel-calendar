@@ -1,68 +1,35 @@
 
 <template name="timeline">
-	<div class="ui center aligned container">Filter by:
+	<div class="ui center aligned container">
  		<div class="ui checked checkbox" id="masterbox">
 			<input id="master-filter-button" type="checkbox">
 			<label for="master-filter-button">Show All</label>
 		</div>
  		<div class="ui checkbox checkfilters" id="movies-checkbox">
 			<input type="checkbox">
-			<label for="movies-filter-button">Movies</label>
+			<label>Movies</label>
 		</div>
 		<div class="ui checkbox checkfilters" id="tv-checkbox">
 			<input type="checkbox">
-			<label for="tv-filter-button">TV</label>
+			<label>TV</label>
 		</div>
 		<div class="ui checkbox checkfilters" id="mcu-checkbox">
 			<input type="checkbox">
-			<label for="mcu-filter-button">Official MCU</label>
+			<label>Official MCU</label>
 		</div>
-<!-- 		<div class="ui checkbox">
-			<input id="upcoming-filter-button" type="checkbox">
-			<label for="upcoming-filter-button">Upcoming</label>
-		</div> -->
+
+        <div class="ui mini buttons">
+            <a class="ui button sort-order red" id="sort-timeline-asc-button">asc</a>
+            <div class="or"></div>
+            <a class="ui button sort-order" id="sort-timeline-desc-button">desc</a>
+        </div>
+
 	</div>
 	<section id="cd-timeline" class="cd-container cssanimations">
     {{#each filtered_movies}}
 		{{> timelineItem}}
 	{{/each}}
 	</section>
-</template>
-
-<template name="timelineItem2">
-	<div class="cd-timeline-block">
-		{{#if logo.url}}
-		<div class="cd-timeline-img cd-picture">
-			<img src="{{logo.url}}" alt="Logo">
-		</div>
-		{{ else }}
-		<div class="cd-timeline-img cd-picture border">
-		</div>
-		{{/if}}
-
-		<div class="cd-timeline-content">
-			<div class="ui card">
-				<div class="content">
-					<i class="right floated like icon"></i>
-					<i class="right floated star icon"></i>
-					<div class="header">Some Sort Of Title</div>
-					<div class="description">
-						<p>This is a lot of important information.</p>
-					</div>
-				</div>
-				<div class="extra content">
-					<span class="left floated like">
-						<i class="like icon"></i>
-						Like
-					</span>
-					<span class="right floated star">
-						<i class="star icon"></i>
-						Favorite
-					</span>
-				</div>
-			</div>
-		</div>
-	</div>
 </template>
 
 <template name="timelineItem">
@@ -90,7 +57,17 @@
 			<div class="movie-info">
 				<h2>{{title}}</h2>
 				<p>{{{description}}}</p>
-				<span class="cd-date">{{release}}</span>
+                <span class="cd-date">
+                {{#if release}}
+                    {{release}}
+                {{else}}
+                    {{#if estimatedDate}}
+                        Estimated: {{estimatedDate}}
+                    {{else}}
+                        Unknown Date
+                    {{/if}}
+                {{/if}}
+                </span>
 			</div>
 		</div>
 	</div>

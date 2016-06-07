@@ -29,16 +29,10 @@ Template.timeline.helpers({
   		}, {sort: { releaseDate: 1 }});
   	},
 	filtered_movies: function() {
-		// if (this.movie_filter.db_selector == "upcoming") {
-		// 	this.movie_filter.dep.depend();
-		// 	return Movies.find({
-		// 		releaseDate: {$gte: new Date()},
-		//   	}, {sort: { releaseDate: 1 }});			
-		// } else {
-			this.movie_filter.dep.depend();
-			return Movies.find(this.movie_filter.db_selector, {sort: { releaseDate: -1 }});
-			// return Movies.find({ attributes: { $all: ['featureFilm','mcu'] }}, {sort: { releaseDate: 1 }});
-		// }
+        this.movie_filter.dep.depend();
+        console.log(this.movie_filter.sort_order);
+        return Movies.find(this.movie_filter.db_selector, {sort: { releaseDate: this.movie_filter.sort_order }});
+        // return Movies.find({ attributes: { $all: ['featureFilm','mcu'] }}, {sort: { releaseDate: 1 }});
 	}
 });
 
@@ -55,7 +49,21 @@ Template.timeline.events({
 	},
 	'click #tv-checkbox': function() {
 		$('#movies-checkbox').checkbox('uncheck');
-	},	'click .ui.checkfilters': function() {
+        
+	},
+    'click .sort-order': function(event) {
+        $('.sort-order').each(function(){
+            $(this).removeClass('red');
+        });
+        $(event.target).addClass('red');
+        var id = $(event.target).attr('id');
+        var order;
+        (id == 'sort-timeline-asc-button') ? order = 1 : order = -1;
+        this.movie_filter.sort_order = order;
+        this.movie_filter.dep.changed();
+    },
+    
+    'click .ui.checkfilters': function() {
 		$('#masterbox').checkbox('uncheck');
 		var query = {
 			attributes: {

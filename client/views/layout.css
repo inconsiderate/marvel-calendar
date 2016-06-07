@@ -33,12 +33,12 @@ a {
 }
 
 .masthead.center.aligned.segment {
-    padding-bottom: 5em;
-    margin-bottom: 4em;
+    padding-bottom: 2em;
+    margin-bottom: 2em;
 }
 
 .ui.inverted.vertical.footer.segment {
-    margin-top: 4em;
+    margin-top: 3em;
 }
 
 .ui.two.column.very.relaxed.grid {

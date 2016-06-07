@@ -25,7 +25,17 @@
 				{{title}}
 				</a>
 			</div>
-			<div class="meta">{{release}}</div>
+			<div class="meta">
+                {{#if release}}
+                    {{release}}
+                {{else}}
+                    {{#if estimatedDate}}
+                        Estimated: {{estimatedDate}}
+                    {{else}}
+                        Unknown Date or Just a Rumour
+                    {{/if}}
+                {{/if}}
+            </div>
 			<div class="center aligned description">
 				<p>{{{description}}}</p>
 			</div>
