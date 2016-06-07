@@ -32,8 +32,9 @@ Template.timeline.helpers({
         this.movie_filter.dep.depend();
         var query = {sort: {}};
         query.sort[this.movie_filter.sort_param] = this.movie_filter.sort_order;
+        console.log(this.movie_filter.db_selector);
         return Movies.find(this.movie_filter.db_selector, query);
-        // return Movies.find({ attributes: { $all: ['featureFilm','mcu'] }}, {sort: { releaseDate: 1 }});
+        // return Movies.find({ attributes: { $in: ['featureFilm','mcu'] }}, {sort: { releaseDate: 1 }});
 	}
 });
 
@@ -45,13 +46,12 @@ Template.timeline.events({
 			this.movie_filter.dep.changed();
 		}
 	},
-	'click #movies-checkbox': function() {
-		$('#tv-checkbox').checkbox('uncheck');
-	},
-	'click #tv-checkbox': function() {
-		$('#movies-checkbox').checkbox('uncheck');
-        
-	},
+	// 'click #movies-checkbox': function() {
+	// 	$('#tv-checkbox').checkbox('uncheck');
+	// },
+	// 'click #tv-checkbox': function() {
+	// 	$('#movies-checkbox').checkbox('uncheck');
+	// },
     'click .sort-ascending': function(event) {
         $('.sort-ascending').each(function () {
             $(this).show();
@@ -78,11 +78,15 @@ Template.timeline.events({
 		var attributes = $('.checkfilters').checkbox('is checked');
 		var master = $('#masterbox').checkbox('is checked');
 
-        if (attributes[0] == true) (query.attributes) ? query.attributes.$all.push("featureFilm") : query = {attributes: {$all: ["featureFilm"]}};
-        if (attributes[1] == true) (query.attributes) ? query.attributes.$all.push("tv") : query = {attributes: {$all: ["tv"]}};
-        if (attributes[2] == true) (query.attributes) ? query.attributes.$all.push("mcu") : query = {attributes: {$all: ["mcu"]}};
-        (attributes[3] == true) ? query.releaseDate = {$exists: false} : query.releaseDate = {$exists: true};
-		// if (attributes[3] == true) query.attributes.releaseDate = {$gte: new Date()};
+        if (attributes[0] == true) (query.attributes) ? query.attributes.$in.push("featureFilm") : query = {attributes: {$in: ["featureFilm"]}};
+        if (attributes[1] == true) (query.attributes) ? query.attributes.$in.push("tv") : query = {attributes: {$in: ["tv"]}};
+        if (attributes[2] == true) (query.attributes) ? query.attributes.$in.push("mcu") : query = {attributes: {$in: ["mcu"]}};
+        if (attributes[3] == true) {query.releaseDate = {$exists: true}}
+        if (this.movie_filter.sort_param == 'viewOrder') {
+            console.log('lol');
+            query.viewOrder = {$exists: true}
+        }
+        // if (attributes[3] == true) query.attributes.releaseDate = {$gte: new Date()};
 		if (master == true) query = {};
 		this.movie_filter.db_selector = query;
 		this.movie_filter.dep.changed();
