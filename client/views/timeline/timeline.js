@@ -46,12 +46,12 @@ Template.timeline.events({
 			this.movie_filter.dep.changed();
 		}
 	},
-	// 'click #movies-checkbox': function() {
-	// 	$('#tv-checkbox').checkbox('uncheck');
-	// },
-	// 'click #tv-checkbox': function() {
-	// 	$('#movies-checkbox').checkbox('uncheck');
-	// },
+	'click #movies-checkbox': function() {
+		$('#tv-checkbox').checkbox('uncheck');
+	},
+	'click #tv-checkbox': function() {
+		$('#movies-checkbox').checkbox('uncheck');
+	},
     'click .sort-ascending': function(event) {
         $('.sort-ascending').each(function () {
             $(this).show();
