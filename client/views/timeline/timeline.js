@@ -78,9 +78,9 @@ Template.timeline.events({
 		var attributes = $('.checkfilters').checkbox('is checked');
 		var master = $('#masterbox').checkbox('is checked');
 
-        if (attributes[0] == true) (query.attributes) ? query.attributes.$in.push("featureFilm") : query = {attributes: {$in: ["featureFilm"]}};
-        if (attributes[1] == true) (query.attributes) ? query.attributes.$in.push("tv") : query = {attributes: {$in: ["tv"]}};
-        if (attributes[2] == true) (query.attributes) ? query.attributes.$in.push("mcu") : query = {attributes: {$in: ["mcu"]}};
+        if (attributes[0] == true) (query.attributes) ? query.attributes.$all.push("featureFilm") : query = {attributes: {$all: ["featureFilm"]}};
+        if (attributes[1] == true) (query.attributes) ? query.attributes.$all.push("tv") : query = {attributes: {$all: ["tv"]}};
+        if (attributes[2] == true) (query.attributes) ? query.attributes.$all.push("mcu") : query = {attributes: {$all: ["mcu"]}};
         if (attributes[3] == true) {query.releaseDate = {$exists: true}}
         if (this.movie_filter.sort_param == 'viewOrder') {
             console.log('lol');
