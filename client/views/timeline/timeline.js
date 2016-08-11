@@ -1,9 +1,11 @@
 Template.timeline.onRendered(function() {
+	$('#confirmed-checkbox').checkbox('check');
+	// $('#mcu-checkbox').checkbox('check');
 	var timelineBlocks = $('.cd-timeline-block'),
 		offset = 0.8;
 	hideBlocks(timelineBlocks, offset);
 	$(window).on('scroll', function(){
-		(!window.requestAnimationFrame) 
+		(!window.requestAnimationFrame)
 			? setTimeout(function(){ showBlocks(timelineBlocks, offset); }, 100)
 			: window.requestAnimationFrame(function(){ showBlocks(timelineBlocks, offset); });
 	});
@@ -18,7 +20,7 @@ Template.timeline.onRendered(function() {
 		});
 	}
 	changeMenuTabs('#nav-timeline');
-	$('#masterbox').checkbox('check');
+
 });
 
 Template.timeline.helpers({

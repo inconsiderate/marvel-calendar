@@ -1,10 +1,6 @@
 
 <template name="timeline">
 	<div class="ui center aligned container">
- 		<div class="ui checked checkbox" id="masterbox">
-			<input id="master-filter-button" type="checkbox">
-			<label for="master-filter-button">Show All</label>
-		</div>
  		<div class="ui checkbox checkfilters" id="movies-checkbox">
 			<input type="checkbox">
 			<label>Movies</label>
@@ -13,17 +9,23 @@
 			<input type="checkbox">
 			<label>TV</label>
 		</div>
-		<div class="ui checkbox checkfilters" id="mcu-checkbox">
+		<div class="ui checked checkbox checkfilters" id="mcu-checkbox">
 			<input type="checkbox">
 			<label>Official MCU</label>
 		</div>
 
-        <div class="ui checkbox checkfilters" id="unconfirmed-checkbox">
+        <div class="ui checked checkbox checkfilters" id="confirmed-checkbox">
             <input type="checkbox">
-            <label>Known Dates</label>
+            <label>Confirmed Dates</label>
         </div>
 
-        <div class="ui mini buttons">
+ 		<div class="ui checkbox" id="masterbox">
+			<input id="master-filter-button" type="checkbox">
+			<label for="master-filter-button">Clear Filters</label>
+		</div>
+
+        <div>Sort By:</div>
+            <div class="ui mini buttons">
             <a class="ui button sort-order" id="sort-timeline-chrono-button" style="display: none;">chronology</a>
             <a class="ui button sort-order" id="sort-timeline-release-button">release date </a>
             <div class="or" data-text=" & "></div>
