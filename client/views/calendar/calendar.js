@@ -9,15 +9,21 @@ Template.calendarpage.onRendered(function() {
 });
 
 Template.calendarpage.helpers({
-	currentCalendarMovies: function() {
-		return Movies.find({
-			$or: [ { endDate: { $gte: new Date() } }, { endDate: null } ],
-  			releaseDate: {$lt: new Date()}
-  		}, {sort: { releaseDate: 1 }, limit: 3});
-	},
 	nextUpCalendarMovies: function() {
 		return Movies.find({
 			releaseDate: {$gte: new Date()}
 		}, {sort: {releaseDate: 1}, limit: 2});
+	},
+	currentCalendarMovies: function() {
+		var i = Movies.find({
+			$or: [ { endDate: { $gte: new Date() } }, { endDate: null } ],
+  			releaseDate: {$lt: new Date()}
+  		}, {sort: { releaseDate: 1 }, limit: 3});
+		if (i > 0) {
+			return i;
+		}
 	}
 });
+
+
+
