@@ -19,11 +19,8 @@ Template.calendarpage.helpers({
 			$or: [ { endDate: { $gte: new Date() } }, { endDate: null } ],
   			releaseDate: {$lt: new Date()}
   		}, {sort: { releaseDate: 1 }, limit: 3});
-		if (i > 0) {
+		if (i.count() > 0) {
 			return i;
 		}
 	}
 });
-
-
-

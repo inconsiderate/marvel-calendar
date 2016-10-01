@@ -14,13 +14,14 @@ Movies = new orion.collection('movies', {
    */
   tabular: {
     columns: [
-      { data: 'title', title: orion.helpers.getTranslation('movies.schema.title') },
-      { data: 'releaseDate', title: orion.helpers.getTranslation('movies.schema.releaseDate') },
-      orion.attributeColumn('image', 'logo', orion.helpers.getTranslation('movies.schema.logo')),
-      orion.attributeColumn('image', 'poster', orion.helpers.getTranslation('movies.schema.poster')),
-      { data: 'studio', title: 'studio'},
-      {data: 'weeklyAiring', title: 'weekly'}, 
-      {data: 'viewOrder', title: 'order'}
+		{ data: 'title', title: orion.helpers.getTranslation('movies.schema.title') },
+		{ data: 'releaseDate', title: orion.helpers.getTranslation('movies.schema.releaseDate') },
+      	orion.attributeColumn('image', 'logo', orion.helpers.getTranslation('movies.schema.logo')),
+      	orion.attributeColumn('image', 'poster', orion.helpers.getTranslation('movies.schema.poster')),
+		orion.attributeColumn('image', 'banner', orion.helpers.getTranslation('movies.schema.banner')),
+		{ data: 'studio', title: 'studio' },
+		{ data: 'weeklyAiring', title: 'weekly' },
+		{ data: 'viewOrder', title: 'order' }
     ]
   }
 });
