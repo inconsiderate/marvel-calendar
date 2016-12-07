@@ -33,8 +33,26 @@ a {
 }
 
 .masthead.center.aligned.segment {
+    text-shadow: 1px 1px 1px black;
     padding-bottom: 2em;
     margin-bottom: 2em;
+}
+
+.masthead.center.aligned.segment .text {
+    position: inherit;
+}
+
+.masthead.center.aligned.segment:before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-image: url("marvel.jpg");
+    -webkit-filter: blur(5px);
+    filter: blur(5px);
 }
 
 .ui.inverted.vertical.footer.segment {
