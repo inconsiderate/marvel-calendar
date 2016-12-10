@@ -12,7 +12,7 @@ Template.calendarpage.helpers({
 	nextUpCalendarMovies: function() {
 		return Movies.find({
 			releaseDate: {$gte: new Date()}
-		}, {sort: {releaseDate: 1}, limit: 2});
+		}, {sort: {releaseDate: 1}, limit: 3});
 	},
 	currentCalendarMovies: function() {
 		var i = Movies.find({

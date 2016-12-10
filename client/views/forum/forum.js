@@ -8,7 +8,7 @@ Template.forumPage.events({
 	"submit #insertNewPostForm": function (event) {
 		$('.ui.accordion').accordion('close', 0);
     }
-})
+});
 
 Template.forumPage.onRendered(function() {
     changeMenuTabs('#nav-news');
