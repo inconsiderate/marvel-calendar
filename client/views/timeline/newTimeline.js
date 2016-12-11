@@ -30,7 +30,7 @@ Template.newTimeline.helpers({
     movieByDate: function(date) {
         console.log(date);
         var dateRange = new Array();
-        for (var i = 2010; i < 2021; i++) {
+        for (var i = 2000; i < 2021; i++) {
             var start = new Date('January 1, '+ i);
             var end = new Date();
 
@@ -113,7 +113,6 @@ Template.newTimeline.events({
         if (this.movie_filter.sort_param == 'viewOrder') {
             query.viewOrder = {$exists: true}
         }
-        // if (attributes[3] == true) query.attributes.releaseDate = {$gte: new Date()};
         if (master == true) query = {};
         this.movie_filter.db_selector = query;
         this.movie_filter.dep.changed();
