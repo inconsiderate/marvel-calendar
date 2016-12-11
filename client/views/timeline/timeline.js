@@ -24,12 +24,12 @@ Template.timeline.onRendered(function() {
 });
 
 Template.timeline.helpers({
-	upcomingTimelineItems: function() {
-        //TODO: toggle sorting asc, desc
-		return Movies.find({
-			releaseDate: {$gte: new Date()}
-  		}, {sort: { releaseDate: 1 }});
-  	},
+	// upcomingTimelineItems: function() {
+     // TODO: toggle sorting asc, desc
+	// 	return Movies.find({
+	// 		releaseDate: {$gte: new Date()}
+  	// 	}, {sort: { releaseDate: 1 }});
+  	// },
 	filtered_movies: function() {
         this.movie_filter.dep.depend();
         var query = {sort: {}};

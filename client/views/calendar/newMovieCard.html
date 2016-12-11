@@ -1,0 +1,52 @@
+<template name="newmoviecard">
+<div class="fluid card">
+<div class="blurring dimmable image">
+<div class="ui dimmer">
+<div class="content">
+<div class="center">
+{{#if watchnow}}
+        <div class="ui inverted button"><a href={{watchnow}} target="_blank"><i class="video play outline icon"></i> Watch Now</a></div>
+{{ else }}
+    {{ #if trailer }}
+        <div class="ui inverted button"><a href={{trailer}} target="_blank"><i class="video play outline icon"></i> Watch Trailer</a></div>
+{{ else }}
+    <div>Media Not Available</div>
+{{/if}}
+{{/if}}
+</div>
+</div>
+</div>
+    <img class="ui fluid dimmable image" src={{banner.url}}>
+</div>
+    <div class="left aligned content">
+        <img class="right floated avatar large ui image" src={{logo.url}}>
+        <div class="header">
+            <a href="../thelist#{{this._id}}">
+                {{title}}
+            </a>
+        </div>
+        <div class="meta">
+            {{#if release}}
+                {{release}}
+            {{else}}
+                {{#if estimatedDate}}
+                    Estimated: {{estimatedDate}}
+                {{else}}
+                    Unknown Date or Just a Rumour
+                {{/if}}
+            {{/if}}
+        </div>
+        <div class="center aligned description">
+            <p>{{{description}}}</p>
+        </div>
+    </div>
+    <div class="extra content">
+        {{#if studio}}
+            <div class="ui bottom left floated item">{{studio}}</div>
+        {{/if}}
+        {{#if trakt}}
+            <div class="ui bottom right floated item"><a href={{trakt}} target="_blank">trakt<i class="right chevron icon"></i></a></div>
+        {{/if}}
+    </div>
+</div>
+</template>

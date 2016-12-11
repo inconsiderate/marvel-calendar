@@ -65,7 +65,7 @@ Router.route('/timeline', {
 	action: function() {
         this.render('header', {to: 'header'});
         this.render('footer', {to: 'footer'});
-     	this.render('timeline', {to: 'content'});   
+     	this.render('timeline', {to: 'content'});
 	},
     data: { 
         movie_filter: {
@@ -75,5 +75,16 @@ Router.route('/timeline', {
             sort_param: 'releaseDate',
             available: Movies.find()
         }
+    }
+});
+
+Router.route('/newtimeline', {
+    waitOn: function () {
+        return Meteor.subscribe('movies');
+    },
+    action: function() {
+        this.render('header', {to: 'header'});
+        this.render('footer', {to: 'footer'});
+        this.render('newTimeline', {to: 'content'});
     }
 });

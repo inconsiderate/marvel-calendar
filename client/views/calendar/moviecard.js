@@ -1,5 +1,5 @@
 
-// SINGLE MOVIE
+// MOVIE CARD
 Template.moviecard.onRendered(function() {
     $('.cards .image').dimmer({
         on: 'hover'
@@ -12,3 +12,5 @@ Template.moviecard.helpers({
 		return moment(m).format("MMMM Do YYYY");
 	}
 });
+
+// NEW MOVIE CARD

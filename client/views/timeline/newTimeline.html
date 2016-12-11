@@ -1,0 +1,55 @@
+
+<template name="newTimeline">
+    <div class="ui center aligned container">
+    </div>
+    <section>
+        {{#each dateRange}}
+            <div class="ui left aligned container">
+                <div class="ui sizer vertical segment">
+                    <div class="ui huge header">
+                        {{this}}
+                        <div class="ui fitted divider"></div>
+                    </div>
+                    <div>
+                        <div class="ui five stackable special cards">
+                            {{#each movieByDate this}}
+                                {{> newTimelineItem}}
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </section>
+</template>
+
+<template name="newTimelineItem">
+
+    <div class="card">
+        <div class="blurring dimmable image">
+            <div class="ui dimmer">
+                <div class="content">
+                    <div class="center">
+                        <div class="ui small inverted header">
+                            {{ title }}
+                            <br /><br />
+                            <br /><br />
+                            {{#if release}}
+                                {{release}}
+                            {{else}}
+                                {{#if estimatedDate}}
+                                    Estimated: {{estimatedDate}}
+                                {{else}}
+                                    Unknown Date
+                                {{/if}}
+                            {{/if}}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <img src="{{poster.url}}">
+        </div>
+    </div>
+
+</template>
