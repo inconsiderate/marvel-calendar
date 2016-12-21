@@ -4,7 +4,7 @@ Template.header.events({
     	Router.go('/calendar');
   	},
   	'click #nav-timeline': function () {
-    	Router.go('/timeline');
+    	Router.go('/timeline/release-date');
   	},
   	'click #nav-news': function () {
     	Router.go('/news');

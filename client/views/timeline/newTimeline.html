@@ -1,29 +1,93 @@
 
-<template name="newTimeline">
+<template name="timelineMenu">
     <div class="ui center aligned container">
+        <div class="ui small buttons">
+            {{#if viewOrder}}
+                <a class="ui blue button sort-order" href="/timeline/release-date">viewing order </a>
+            {{else}}
+                <a class="ui blue button sort-order" href="/timeline/view-order">release date</a>
+            {{/if}}
+            <div class="or" data-text=" & "></div>
+            <a class="ui blue button sort-ascending {{#if viewOrder}}disabled{{/if}}" id="sort-timeline-asc-button">ascending</a>
+            <a class="ui blue button sort-ascending {{#if viewOrder}}disabled{{/if}}" id="sort-timeline-desc-button" style="display: none;">descending</a>
+        </div>
     </div>
+</template>
+
+<template name="timelineViewOrder">
+    {{> timelineMenu }}
+    <section class="ui center aligned container">
+        <br/>
+            <table class="ui very basic collapsing celled striped table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th class="six wide"></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                {{#each moviesByViewOrder}}
+                    <tr>
+                        <td class="middle aligned">
+                            <img class="ui mini rounded image" src={{logo.url}}>
+                        </td>
+                        <td>
+                            <h4 class="ui image header">
+                                <!--<img src="/images/avatar2/small/lena.png" class="ui mini rounded image">-->
+                                <div class="content">
+                                    {{ title }}
+                                    <div class="sub header">{{ studio }}
+                                    </div>
+                                </div>
+                            </h4>
+                            </td>
+                        <td>
+                            {{{ description }}}
+                        </td>
+                        <td>
+                            {{ release }}
+                        </td>
+                    </tr>
+                {{/each}}
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+    </section>
+</template>
+
+<template name="timelineReleaseDate">
+    {{> timelineMenu }}
     <section>
         {{#each dateRange}}
-            <div class="ui left aligned container">
-                <div class="ui sizer vertical segment">
-                    <div class="ui huge header">
-                        {{this}}
-                        <div class="ui fitted divider"></div>
-                    </div>
-                    <div>
-                        <div class="ui five stackable special cards">
-                            {{#each movieByDate this}}
-                                {{> newTimelineItem}}
-                            {{/each}}
+            {{#if movieByDate this }}
+                <div class="ui left aligned container">
+                    <div class="ui sizer vertical segment">
+                        <div class="ui huge header">
+                            {{this}}
+                            <div class="ui fitted divider"></div>
+                        </div>
+                        <div>
+                            <div class="ui five doubling special cards">
+                                {{#each movieByDate this}}
+                                    {{> timelineItemReleaseDate }}
+                                {{/each}}
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            {{/if}}
         {{/each}}
     </section>
 </template>
 
-<template name="newTimelineItem">
+<template name="timelineItemReleaseDate">
 
     <div class="card">
         <div class="blurring dimmable image">

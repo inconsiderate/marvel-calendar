@@ -31,10 +31,10 @@ Template.timeline.helpers({
   	// 	}, {sort: { releaseDate: 1 }});
   	// },
 	filtered_movies: function() {
+		console.log(this.movie_filter);
         this.movie_filter.dep.depend();
         var query = {sort: {}};
         query.sort[this.movie_filter.sort_param] = this.movie_filter.sort_order;
-        console.log(this.movie_filter.db_selector);
         return Movies.find(this.movie_filter.db_selector, query);
         // return Movies.find({ attributes: { $in: ['featureFilm','mcu'] }}, {sort: { releaseDate: 1 }});
 	}

@@ -58,16 +58,36 @@ Router.route('/news', {
     }
 });
 
-Router.route('/timeline', {
+Router.route('/timeline/view-order', {
     waitOn: function () {
         return Meteor.subscribe('movies');
     },
 	action: function() {
         this.render('header', {to: 'header'});
         this.render('footer', {to: 'footer'});
-     	this.render('timeline', {to: 'content'});
+     	this.render('timelineViewOrder', {to: 'content'});
 	},
-    data: { 
+    data: {
+        movie_filter: {
+            dep: new Tracker.Dependency,
+            db_selector: {},
+            sort_order: 1,
+            sort_param: 'viewOrder',
+            available: Movies.find()
+        }
+    }
+});
+
+Router.route('/timeline/release-date', {
+    waitOn: function () {
+        return Meteor.subscribe('movies');
+    },
+    action: function() {
+        this.render('header', {to: 'header'});
+        this.render('footer', {to: 'footer'});
+        this.render('timelineReleaseDate', {to: 'content'});
+    },
+    data: {
         movie_filter: {
             dep: new Tracker.Dependency,
             db_selector: {},
@@ -75,16 +95,5 @@ Router.route('/timeline', {
             sort_param: 'releaseDate',
             available: Movies.find()
         }
-    }
-});
-
-Router.route('/newtimeline', {
-    waitOn: function () {
-        return Meteor.subscribe('movies');
-    },
-    action: function() {
-        this.render('header', {to: 'header'});
-        this.render('footer', {to: 'footer'});
-        this.render('newTimeline', {to: 'content'});
     }
 });

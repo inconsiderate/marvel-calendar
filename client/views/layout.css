@@ -63,6 +63,11 @@ a {
     position: relative;
 }
 
+a.ui.button.sort-ascending {
+    border-top-right-radius: 0.28571429rem;
+    border-bottom-right-radius: 0.28571429rem;
+}
+
 #marvelbutton {
     margin-right: 10px;
 }
