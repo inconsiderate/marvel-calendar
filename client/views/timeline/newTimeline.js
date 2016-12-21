@@ -37,14 +37,14 @@ Template.newTimeline.helpers({
             end.setYear(start.getFullYear() + 1);
 
             dateRange[new Date('January 1, '+ i)] = Movies.find({
-                $and: [ { releaseDate: { $gte: start } }, { releaseDate: { $lte: end } } ],
+                $and: [ { releaseDate: { $gte: start } }, { releaseDate: { $lte: end } } ]
             }, {sort: { releaseDate: 1 }});
         }
 
     },
     dateRange: function() {
         var dateRange = new Array();
-        for (var i = 2015; i < 2021; i++) {
+        for (var i = 2000; i < 2021; i++) {
             dateRange.push(i);
         }
         return dateRange;
