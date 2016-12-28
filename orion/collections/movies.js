@@ -92,6 +92,11 @@ Movies.attachSchema(new SimpleSchema({
     label: 'Airs Weekly On:',
     optional: true
   },
+  chronologyDate: {
+    type: String,
+    label: 'Chrono Date',
+    optional: true
+  },
   viewOrder: {
       type: Number,
       label: 'View Order',
