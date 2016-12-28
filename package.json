@@ -1,0 +1,23 @@
+{
+  "name": "marvel-calendar",
+  "version": "1.0.0",
+  "description": "MCC is a simple app built to display upcoming air dates for Marvel movies and TV shows.",
+  "main": "routes.js",
+  "dependencies": {
+    "babel-runtime": "^6.20.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inconsiderate/marvel-calendar.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/inconsiderate/marvel-calendar/issues"
+  },
+  "homepage": "https://github.com/inconsiderate/marvel-calendar#readme"
+}

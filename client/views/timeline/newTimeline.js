@@ -99,11 +99,16 @@ Template.timelineViewOrder.helpers({
     moviesByViewOrder: function() {
         this.movie_filter.dep.depend();
 
-        return Movies.find({}, {sort: {viewOrder: this.movie_filter.sort_order}});
+        return Movies.find({
+            viewOrder: { $type: 1 }
+        }, {
+            sort: {viewOrder: this.movie_filter.sort_order}
+        });
     },
     release: function () {
         if (this.releaseDate) {
             var m = moment(this.releaseDate).utc();
+
             return moment(m).format("MMMM Do YYYY");
         } else {
 
