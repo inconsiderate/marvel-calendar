@@ -20,8 +20,8 @@ Movies = new orion.collection('movies', {
       	orion.attributeColumn('image', 'poster', orion.helpers.getTranslation('movies.schema.poster')),
 		orion.attributeColumn('image', 'banner', orion.helpers.getTranslation('movies.schema.banner')),
 		{ data: 'studio', title: 'studio' },
-		{ data: 'weeklyAiring', title: 'weekly' },
-		{ data: 'viewOrder', title: 'order' }
+        { data: 'viewOrder', title: 'order' },
+        { data: 'chronologyDate', title: 'chrono date' }
     ]
   }
 });
