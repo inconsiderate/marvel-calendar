@@ -1,3 +1,4 @@
+
 Router.configure({
 	loadingTemplate: 'loading',
 	layoutTemplate: 'layout'
@@ -17,17 +18,45 @@ Router.route('/', {
     }
 });
 
-Router.route('/calendar', {
+Router.route('/marvel', {
     onAfterAction: function() {
         $('.tooltip-popup').popup();
     },
     waitOn: function () {
-        return Meteor.subscribe('movies');
+        return Meteor.subscribe('marvelMovies');
     },
     action: function() {
         this.render('header', {to: 'header'});
         this.render('footer', {to: 'footer'});
      	this.render('calendarpage', {to: 'content'});   
+    }
+});
+
+Router.route('/dc', {
+    onAfterAction: function() {
+        $('.tooltip-popup').popup();
+    },
+    waitOn: function () {
+        return Meteor.subscribe('dcMovies');
+    },
+    action: function() {
+        this.render('header', {to: 'header'});
+        this.render('footer', {to: 'footer'});
+        this.render('calendarpage', {to: 'content'});
+    }
+});
+
+Router.route('/other', {
+    onAfterAction: function() {
+        $('.tooltip-popup').popup();
+    },
+    waitOn: function () {
+        return Meteor.subscribe('otherMovies');
+    },
+    action: function() {
+        this.render('header', {to: 'header'});
+        this.render('footer', {to: 'footer'});
+        this.render('calendarpage', {to: 'content'});
     }
 });
 
@@ -93,6 +122,26 @@ Router.route('/timeline/release-date', {
             db_selector: {},
             sort_order: 1,
             sort_param: 'releaseDate',
+            available: Movies.find()
+        }
+    }
+});
+
+Router.route('/timeline', {
+    waitOn: function () {
+        return Meteor.subscribe('movies');
+    },
+    action: function() {
+        this.render('header', {to: 'header'});
+        this.render('footer', {to: 'footer'});
+        this.render('timelineViewOrder', {to: 'content'});
+    },
+    data: {
+        movie_filter: {
+            dep: new Tracker.Dependency,
+            db_selector: {},
+            sort_order: 1,
+            sort_param: 'viewOrder',
             available: Movies.find()
         }
     }

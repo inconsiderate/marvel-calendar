@@ -35,6 +35,18 @@ Movies.attachSchema(new SimpleSchema({
     type: String,
     label: 'Title'
   },
+  publisher: {
+    type: [String],
+    label: "publisher",
+    autoform: {
+      afFieldInput: {
+        type: "select-checkbox-inline",
+        options: function () {
+          return { marvel: 'marvel', DC: 'dc', other: 'other' };
+        }
+      }
+    }
+  },
   attributes: {
     type: [String],
       label: "attributes",

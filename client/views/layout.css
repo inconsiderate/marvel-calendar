@@ -68,7 +68,7 @@ a.ui.button.sort-ascending {
     border-bottom-right-radius: 0.28571429rem;
 }
 
-#marvelbutton {
+#marvelbutton, #dcbutton {
     margin-right: 10px;
 }
 

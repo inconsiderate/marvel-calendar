@@ -1,8 +1,11 @@
 
 Template.header.events({
-  	'click #nav-cal': function () {
-    	Router.go('/calendar');
+  	'click #marvelbutton': function () {
+    	Router.go('/marvel');
   	},
+	'click #dcbutton': function () {
+		Router.go('/dc');
+	},
   	'click #nav-timeline': function () {
     	Router.go('/timeline/view-order');
   	},
