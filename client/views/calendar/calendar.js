@@ -31,4 +31,13 @@ Template.calendarpage.helpers({
 			return i;
 		}
 	},
+	oneCurrentMovie: function() {
+		var i = Movies.find({
+			$or: [ { endDate: { $gte: new Date() } }, { endDate: null } ],
+  			releaseDate: {$lt: new Date()}
+  		}, {sort: { releaseDate: 1 }, limit: 3});
+		if (i.count() == 1) {
+			return true;
+		}
+	}
 });
