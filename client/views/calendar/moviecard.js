@@ -14,3 +14,9 @@ Template.moviecard.helpers({
 });
 
 // NEW MOVIE CARD
+Template.nextUpMovieCard.helpers({
+	"release": function(){
+		var m = moment(this.releaseDate);
+		return moment(m).format("MMMM Do YYYY");
+	}
+});

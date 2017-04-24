@@ -51,3 +51,28 @@
 		</div>
 	</div>
 </template>
+
+<template name="nextUpMovieCard">
+	<div class="item">
+	    <div class="right floated content">
+      		<div class="ui tiny header">{{release}}</div>
+    	</div>
+		<img class="vertical aligned ui avatar image" src={{logo.url}} />
+		<div class="content">
+			<div class="ui vertical aligned header">{{title}}</div>
+		</div>
+		<div class="description">{{{description}}}</div>
+		<br/>
+		<div class="extra content">
+			{{#if studio}}
+			<i class="ui bottom left floated item">{{studio}}</i>
+			{{/if}}
+			{{#if trakt}}
+			<div class="ui bottom right floated item"><a href={{trakt}} target="_blank">trakt<i class="right chevron icon"></i></a></div>
+			{{/if}}
+		</div>
+	</div>
+</template>
+
+
+

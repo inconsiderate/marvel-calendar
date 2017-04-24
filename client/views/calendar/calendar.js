@@ -10,17 +10,9 @@ Template.calendarpage.onRendered(function() {
 
 Template.calendarpage.helpers({
 	nextUpCalendarMovies: function() {
-		var limit = 2;
-		var i = Movies.find({
-			$or: [ { endDate: { $gte: new Date() } }, { endDate: null } ],
-  			releaseDate: {$lt: new Date()}
-  		}, {sort: { releaseDate: 1 }, limit: 3});
-		if (i.count() < 1) {
-			limit = 3;
-		}
 		return Movies.find({
 			releaseDate: {$gte: new Date()}
-		}, {sort: {releaseDate: 1}, limit: limit});
+		}, {sort: {releaseDate: 1}, limit: 3});
 	},
 	currentCalendarMovies: function() {
 		var i = Movies.find({
