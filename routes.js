@@ -14,7 +14,8 @@ Router.route('/', {
     action: function() {
         this.render('header', {to: 'header'});
         this.render('footer', {to: 'footer'});
-        this.render('calendarpage', {to: 'content'});   
+        this.render('calendarpage', {to: 'content'});
+        this.render('marvelGoogleCalendar', {to:'googleCalendar'});
     }
 });
 
@@ -28,7 +29,8 @@ Router.route('/marvel', {
     action: function() {
         this.render('header', {to: 'header'});
         this.render('footer', {to: 'footer'});
-     	this.render('calendarpage', {to: 'content'});   
+     	this.render('calendarpage', {to: 'content'});
+        this.render('marvelGoogleCalendar', {to:'googleCalendar'});
     }
 });
 
@@ -43,7 +45,7 @@ Router.route('/dc', {
         this.render('header', {to: 'header'});
         this.render('footer', {to: 'footer'});
         this.render('calendarpage', {to: 'content'});
-    }
+        this.render('dcGoogleCalendar', {to:'googleCalendar'});    }
 });
 
 Router.route('/other', {
@@ -57,7 +59,7 @@ Router.route('/other', {
         this.render('header', {to: 'header'});
         this.render('footer', {to: 'footer'});
         this.render('calendarpage', {to: 'content'});
-    }
+        this.render('otherGoogleCalendar', {to:'googleCalendar'});    }
 });
 
 Router.route('/thelist', {

@@ -5,14 +5,6 @@ Meteor.publish('movies', function () {
 	return Movies.find({});
 });
 
-Meteor.publish('posts', function () {
-	return Posts.find({});
-});
-
-Meteor.publish('comments', function() {
-	return Comments.find({});
-});
-
 Meteor.publish('dcMovies', function () {
 	return Movies.find({publisher: 'dc'});
 });
