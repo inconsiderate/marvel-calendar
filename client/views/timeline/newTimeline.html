@@ -37,7 +37,11 @@
                             <h4 class="ui image header">
                                 <!--<img src="/images/avatar2/small/lena.png" class="ui mini rounded image">-->
                                 <div class="content">
-                                    <a href={{trakt}} target="_blank">{{ title }}</a>
+                                    {{#if watchnow}}
+                                        <a href={{watchnow}} target="_blank">{{ title }}</a>
+                                    {{else}}                        
+                                        <a href={{trakt}} target="_blank">{{ title }}</a>
+                                    {{/if}}
                                     <div class="sub header">{{ studio }}
                                     </div>
                                 </div>
