@@ -109,6 +109,7 @@ a.ui.button.sort-ascending {
 
 #calendar-share-button {
     float: right;
+    font-size: 1.25em;
 }
 
 .orion-bootstrap-admin img {
