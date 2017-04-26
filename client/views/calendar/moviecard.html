@@ -23,9 +23,11 @@
 			<div class="left aligned content">
 				<img class="right floated avatar large ui image" src={{logo.url}}>
 				<div class="header">
-					<a href="../thelist#{{this._id}}">
-					{{title}}
-					</a>
+					{{ #if trailer }}
+						<a href={{trailer}}>{{title}}</a>
+					{{ else }}
+						{{title}}
+					{{ /if }}
 				</div>
 				<div class="meta">
 	                {{#if release}}
