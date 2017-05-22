@@ -105,6 +105,15 @@ Template.timelineViewOrder.helpers({
             sort: {viewOrder: this.movie_filter.sort_order}
         });
     },
+
+    futureMoviesNoViewOrder: function() {
+        return Movies.find({
+            $or: [ { endDate: { $gte: new Date() } }, { endDate: null } ],
+            $or: [ { releaseDate: { $gte: new Date() } }, { releaseDate: null } ],
+            publisher: 'marvel'
+        });
+    },
+
     release: function () {
         if (this.releaseDate) {
             var m = moment(this.releaseDate).utc();

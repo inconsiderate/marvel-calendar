@@ -67,7 +67,48 @@
     <br/>
     <br/>
     <section class="ui center aligned container">
-        <h4 class="ui horizontal header divider"><span>Suggestions? Mistakes? Leave a comment!</span></h4>
+        <h4 class="ui horizontal header divider"><span>Upcoming, Unconfirmed, Unknown</span></h4>
+                    <table class="ui very basic collapsing celled striped table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th class="five wide"></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                {{#each futureMoviesNoViewOrder}}
+                    <tr>
+                        <td class="middle aligned">
+                            <img class="ui mini rounded image" src={{logo.url}}>
+                        </td>
+                        <td>
+                            <h4 class="ui image header">
+                                <!--<img src="/images/avatar2/small/lena.png" class="ui mini rounded image">-->
+                                <div class="content">
+                                    {{#if watchnow}}
+                                        <a href={{watchnow}} target="_blank">{{ title }}</a>
+                                    {{else}}                        
+                                        <a href={{trakt}} target="_blank">{{ title }}</a>
+                                    {{/if}}
+                                    <div class="sub header">{{ studio }}
+                                    </div>
+                                </div>
+                            </h4>
+                            </td>
+                        <td>
+                            {{{ description }}}
+                        </td>
+                    </tr>
+                {{/each}}
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+
     </section>
     <section class="ui center aligned container">
         <div id="disqus_thread"></div>
@@ -117,7 +158,6 @@
 </template>
 
 <template name="timelineItemReleaseDate">
-
     <div class="card">
         <div class="blurring dimmable image">
             <div class="ui dimmer">
@@ -144,5 +184,4 @@
             <img src="{{poster.url}}">
         </div>
     </div>
-
 </template>
