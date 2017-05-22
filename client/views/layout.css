@@ -39,6 +39,7 @@ a {
 
 .masthead.center.aligned.segment .text {
     position: inherit;
+    margin-top: 1em;
 }
 
 .masthead.center.aligned.segment:before {

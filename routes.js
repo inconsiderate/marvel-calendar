@@ -75,7 +75,7 @@ Router.route('/thelist', {
     }
 });
 
-Router.route('/news', {
+Router.route('/latest', {
     onAfterAction: function() {
     },
     waitOn: function () {
@@ -85,7 +85,7 @@ Router.route('/news', {
     action: function() {
         this.render('header', {to: 'header'});
         this.render('footer', {to: 'footer'});
-    	this.render('forumPage', {to: 'content'});
+    	this.render('theLatest', {to: 'content'});
     }
 });
 

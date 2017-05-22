@@ -1,19 +1,19 @@
 
 Template.header.events({
-  	'click #marvelbutton': function () {
-    	Router.go('/');
-  	},
-	'click #dcbutton': function () {
-		Router.go('/dc');
-	},
-  	'click #nav-timeline': function () {
-    	Router.go('/timeline/view-order');
-  	},
-    'click #nav-news': function () {
-      Router.go('/news');
+    'click #marvelbutton': function () {
+        Router.go('/');
+    },
+    'click #dcbutton': function () {
+        Router.go('/dc');
+    },
+    'click #nav-timeline': function () {
+        Router.go('/timeline/view-order');
     },
     'click #nav-cal': function () {
-      Router.go('/');
+        Router.go('/');
+    },
+    'click #nav-latest': function () {
+        Router.go('/latest');
     }
 });
 

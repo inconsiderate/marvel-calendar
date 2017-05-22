@@ -1,17 +1,17 @@
-Template.forumPage.helpers({
+Template.theLatest.helpers({
 	posts: function() {
 		return Posts.find({}, {sort: { createdAt: -1 }});
 	},
 });
 
-Template.forumPage.events({
+Template.theLatest.events({
 	"submit #insertNewPostForm": function (event) {
 		$('.ui.accordion').accordion('close', 0);
     }
 });
 
-Template.forumPage.onRendered(function() {
-    changeMenuTabs('#nav-news');
+Template.theLatest.onRendered(function() {
+    changeMenuTabs('#nav-latest');
 });
 
 Template.post.onRendered(function() {
