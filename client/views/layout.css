@@ -117,12 +117,9 @@ a.ui.button.sort-ascending {
     max-width: 2.5em;
 }
 
-.movie-image {
-    margin-top: 16px;
-    margin-bottom: 16px;
+.center.aligned.description {
+    min-height: 15em;
 }
-
-
 
 .ui.fluid.card {
     margin: 0.5em 0em;
