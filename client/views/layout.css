@@ -134,7 +134,13 @@ i.icon {
 }
 
 img {
-    width: 100%;
+    width: auto;
+    max-height: 30em;
+}
+
+.movie-poster {
+    position: relative;
+    z-index: 1;
 }
 
 a {

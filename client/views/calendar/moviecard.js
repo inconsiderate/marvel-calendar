@@ -1,12 +1,12 @@
 
 // MOVIE CARD
-Template.moviecard.onRendered(function() {
+Template.newmoviecard.onRendered(function() {
     $('.cards .image').dimmer({
         on: 'hover'
     });
 });
 
-Template.moviecard.helpers({
+Template.newmoviecard.helpers({
 	"release": function(){
 		var m = moment(this.releaseDate);
 		return moment(m).format("MMMM Do YYYY");
