@@ -39,3 +39,10 @@ Template.nextUpMovieCard.helpers({
 		return moment(m).format("MMMM Do YYYY");
 	},
 });
+
+Template.moviecard.helpers({
+	"release": function(){
+		var m = moment(this.releaseDate);
+		return moment(m).format("MMMM Do YYYY");
+	},
+});
