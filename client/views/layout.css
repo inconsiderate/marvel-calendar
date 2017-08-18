@@ -16,6 +16,10 @@ html, body {
     margin-bottom: 25px;
 }
 
+.dimmer {
+    cursor: pointer;
+}
+
 .myname {
     font-size: 1.5rem;
 }
