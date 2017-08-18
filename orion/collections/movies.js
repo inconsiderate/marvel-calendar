@@ -133,6 +133,21 @@ Movies.attachSchema(new SimpleSchema({
     label: 'Trakt',
     optional: true
   },
+  googleplay: {
+    type: String,
+    label: 'Google Play',
+    optional: true
+  },
+  netflix: {
+    type: String,
+    label: 'Netflix',
+    optional: true
+  },
+  networkicon: {
+    type: String,
+    label: 'Network Icon Path',
+    optional: true
+  },
   /**
    * WARNING: the url of the image will not be saved in .image, it will be saved in .image.url.
    */

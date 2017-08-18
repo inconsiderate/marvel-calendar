@@ -20,6 +20,10 @@ html, body {
     cursor: pointer;
 }
 
+.ui.tiny.image {
+    display: inline;
+}
+
 .myname {
     font-size: 1.5rem;
 }

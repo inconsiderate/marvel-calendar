@@ -37,13 +37,19 @@
                             <h4 class="ui image header">
                                 <!--<img src="/images/avatar2/small/lena.png" class="ui mini rounded image">-->
                                 <div class="content">
-                                    {{#if watchnow}}
-                                        <a href={{watchnow}} target="_blank">{{ title }}</a>
-                                    {{else}}                        
-                                        <a href={{trakt}} target="_blank">{{ title }}</a>
-                                    {{/if}}
+                                    <a href={{trakt}} target="_blank">{{ title }}</a>
                                     <div class="sub header">{{ studio }}
                                     </div>
+                                    {{#if googleplay}}
+                                        <a href="{{googleplay}}"><img class="ui tiny image" src="https://www.androidpolice.com/wp-content/uploads/2016/04/nexus2cee_product_logo_play_movies_color_192.png"></a>
+                                    {{/if}}
+                                    {{#if netflix}}
+                                        <a href="{{googleplay}}"><img class="ui tiny image" src="http://icons.iconarchive.com/icons/alecive/flatwoken/512/Apps-Netflix-icon.png"></a>
+                                    {{/if}}
+                                    {{#if watchnow}}
+                                        <a href="{{watchnow}}"><img class="ui tiny image" src="{{networkicon}}"></a>
+                                    {{/if}}
+
                                 </div>
                             </h4>
                             </td>
