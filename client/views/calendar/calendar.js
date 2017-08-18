@@ -11,7 +11,12 @@ Template.calendarpage.onRendered(function() {
 		height: 600
 	});
 
+    $('.ui.dimmer').dimmer({
+        on: 'hover'
+    });
+
     changeMenuTabs('#nav-cal');
+
 });
 
 Template.calendarpage.helpers({

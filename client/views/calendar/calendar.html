@@ -5,8 +5,20 @@
             <h3 class="ui horizontal header divider"><span>Now Playing</span></h3>
 	    	<div class="ui centered stackable relaxed equal width grid container special cards">
 		        {{#each currentCalendarMovies}}
-					<div class="column">
-		        	    <img class="ui centered image" src="{{poster.url}}">
+					<div class="ui centered column">
+						<img class="ui centered image" src="{{poster.url}}">
+						{{#if watchnow }}
+							<div class="ui dimmer">
+								<div class="content">
+									<div class="center">
+										<h2 class="ui inverted icon header">
+											<i class="play icon"></i>
+											Watch Now
+										</h2>
+									</div>
+								</div>
+							</div>
+						{{/if}}
 		            </div>
 		        {{/each}}
 			</div>
@@ -39,7 +51,7 @@
 	<div class="ui two column very relaxed stackable grid container">
 		<div class="eight wide column">
 	    	<!-- <h4 class="ui horizontal header divider"><span>Support</span></h4> -->
-			<p>If you find this site helpful, if you make use of the calendar sync, if you just have a spare dollar, consider sending it in this direction. The site could always use more dollars.
+			<p>If you find this site helpful or if you make use of the calendar sync, consider sending a buck in this direction. The site could always use more bucks.
 			</p>
 			<div class="ui centered item">
 			<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
