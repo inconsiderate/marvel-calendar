@@ -111,6 +111,10 @@ a.ui.button.sort-ascending {
     margin-bottom: 5px;
 }
 
+#calendar-container {
+    margin-top: 2em;
+}
+
 #calendar {
     background-color: white;
     opacity: 0.9;
