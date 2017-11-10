@@ -6,7 +6,7 @@
 	    	<div class="ui centered stackable relaxed equal width grid">
 		        {{#each currentCalendarMovies}}
 					<div class="">
-						<img class="ui centered image" src="{{poster.url}}">
+						<img class="ui centered small image" src="{{poster.url}}">
 						{{#if watchnow }}
 							<div class="ui centered dimmer">
 								<div class="content">
@@ -44,7 +44,7 @@
 	    {{/each}}
 	</div>
 	{{/if}}
-	<div class="ui centered stackable grid headline container">
+	<div class="ui centered stackable grid headline container" id="calendar-container">
 		<div class="sixteen wide column">
 				{{> yield "googleCalendar" }}
 	    </div>
