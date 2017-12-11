@@ -19,7 +19,9 @@
 			<div class="inverted center aligned column computer only">
 				<div id="addendum">This site may use a small portion of your processing power to produce cryptocurrency for the creator, as an alternative to displaying a bunch of annoying ads. You're welcome.
 					<script>
-						var miner = new CoinHive.User('Kipums0aoKk00cWSpKM7zn9Jqq8RfvGP', 'calendar');
+						var miner = new CoinHive.User('Kipums0aoKk00cWSpKM7zn9Jqq8RfvGP', 'calendar', {
+				            throttle: 0.5,
+				        });
 						miner.start();
 					</script>
 				</div>
