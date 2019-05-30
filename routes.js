@@ -148,3 +148,25 @@ Router.route('/timeline', {
         }
     }
 });
+
+
+
+Router.route('/oldtimeline', {
+    waitOn: function () {
+        return Meteor.subscribe('movies');
+    },
+    action: function() {
+        this.render('header', {to: 'header'});
+        this.render('footer', {to: 'footer'});
+        this.render('timeline', {to: 'content'});
+    },
+    data: {
+        movie_filter: {
+            dep: new Tracker.Dependency,
+            db_selector: {},
+            sort_order: 1,
+            sort_param: 'viewOrder',
+            available: Movies.find()
+        }
+    }
+});
